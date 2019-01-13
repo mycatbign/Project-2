@@ -2,15 +2,27 @@
   <div class="row">
     <div class="col-8 offset-2">
       <div class="card mt-4">
+  <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+
         <div class="card-body">
           <h5 class="card-title">Example</h5>
+            <div  class="map" id='map'></div>
           <p>
-            <strong>ID</strong>: {{example.id}}</p>
+            <strong>Name</strong>: {{example.Name}}</p>
+            <p>
+            <strong>Elevation:</strong> {{example.Elevation}} <strong>Prominence</strong>: {{example.Prominence}}</p>
           <p>
+          <a>
+            <strong>State</strong>: {{example.State}}</a>
           <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
             <a href="/">← Back To Home</a>
         </div>
       </div>
