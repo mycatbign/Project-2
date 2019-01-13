@@ -3,7 +3,33 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-
+//modal logic
+$("document").ready(function() {
+  $("#sign-in-modal").modal("show");
+  $("#sign-up-text").hide();
+  $(document).on("click", "#return-to-sign-in", function() {
+    $("#sign-up-text").hide();
+    $("#sign-in-text").show();
+  });
+  $(document).on("click", "#switch-sign-up", function(event) {
+    $("#sign-in-modal").modal("show");
+    event.preventDefault();
+    console.log("switch modals");
+    $("#sign-in-text").hide();
+    $("#sign-up-text").show();
+  });
+  $(document).on("click", ".sign-up", function() {
+    console.log("working");
+    $("#sign-in-modal").modal("toggle");
+    $("#sign-in-text").hide();
+    $("#sign-up-text").show();
+  });
+  $(document).on("click", ".sign-in", function() {
+    $("#sign-in-modal").modal("toggle");
+    $("#sign-up-text").hide();
+    $("#sign-in-text").show();
+  });
+});
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
