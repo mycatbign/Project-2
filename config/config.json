@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "kristen30!Q",
+    "password": "password",
 
     "database": "exampledb",
     "host": "localhost",
