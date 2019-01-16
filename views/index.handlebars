@@ -25,7 +25,9 @@
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="example/{{this.id}}">{{this.Name}}</a>
+             <strong>Elevation</strong>: {{this.Elevation}}
+             <button class="btn float-right ">Check box</button>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
 
@@ -38,6 +40,5 @@
 
   </div>
 </div>
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

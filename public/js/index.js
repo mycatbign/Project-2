@@ -39,7 +39,7 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
+        .text(example.Name)
         .attr("href", "/example/" + example.id);
       var $li = $("<li>")
         .attr({
@@ -69,7 +69,7 @@ var handleFormSubmit = function(event) {
   };
   console.log("HFS: Example" + example);
 
-  if (!(example.text && example.description)) {
+  if (!(example.Name && example.description)) {
     alert("You must enter an example text and description!");
     return;
   }
