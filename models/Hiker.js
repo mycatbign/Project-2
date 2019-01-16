@@ -12,10 +12,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1, 16]
-        //isUser: true,
-        // isUnique: sequelize.validateIsUnique(
-        //   "user",
-        //   "That username is being used. Please choose a different username")
       }
     },
     password: {

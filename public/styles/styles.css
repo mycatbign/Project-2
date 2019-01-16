@@ -2,10 +2,11 @@
   line-height: 2.5;
 }
 
-body {
-  background-image: url("./public/images/background.jpg");
-  
- }
  #sign-up-modal{
    display:block;
  }
+.map {
+  height: 250px;  
+  width: 250px;
+  margin: 10px;  
+}

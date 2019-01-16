@@ -5,10 +5,9 @@ module.exports = function(hiker) {
   hiker.get("/api/hiker/:id", function(req, res) {
     db.hiker.findOne({
       where: {
-      user: req.body.user,
-      password: req.body.password
+        user: req.body.user,
+        password: req.body.password
       },
-      // include: [db.user]
     }).then(function(dbHiker) {
       res.json(dbHiker);
     });
@@ -19,7 +18,7 @@ module.exports = function(hiker) {
     db.hiker.create(req.body).then(function(dbHiker) {
       console.log(req.body);
       res.json(dbHiker);
-          });
+    });
   });
 
   // Delete a hiker by id
