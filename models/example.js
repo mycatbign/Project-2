@@ -3,7 +3,9 @@ module.exports = function(sequelize, DataTypes) {
     Name: DataTypes.STRING,
     Elevation: DataTypes.TEXT,
     Prominence: DataTypes.TEXT,
-    State: DataTypes.TEXT
+    State: DataTypes.TEXT,
+    LatLong: DataTypes.TEXT,
+    Longitude: DataTypes.TEXT
   });
   return Example;
 };

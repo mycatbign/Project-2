@@ -3,20 +3,24 @@
     <div class="col-8 offset-2">
       <div class="card mt-4">
   <script>
+    
       var map;
+      const latNumber = parseFloat('{{example.LatLong}}');
+      const logNumber  = parseFloat('{{example.Longitude}}');
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: latNumber, lng: logNumber },
+          zoom: 12
         });
       }
+      console.log(typeof latNumber)
     </script>
 
         <div class="card-body">
           <h5 class="card-title">Example</h5>
             <div  class="map" id='map'></div>
           <p>
-            <strong>Name</strong>: {{example.Name}}</p>
+            <strong>Name</strong>: {{example.Name}} </p>
             <p>
             <strong>Elevation:</strong> {{example.Elevation}} <strong>Prominence</strong>: {{example.Prominence}}</p>
           <p>
