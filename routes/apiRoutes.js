@@ -1,37 +1,39 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/hiker/:id", function(req, res) {
-    db.Hiker.findOne({
+module.exports = function(hiker) {
+  // Get logged in hiker
+  hiker.get("/api/hiker/:id", function(req, res) {
+    db.hiker.findOne({
       where: {
-        user: req.params.user,
-        pasword: req.params.password
+      user: req.body.user,
+      password: req.body.password
       },
-      include: [db.User, db.Info]
+      // include: [db.user]
     }).then(function(dbHiker) {
       res.json(dbHiker);
     });
   });
 
-  // Create a new example
-  app.post("/api/hiker", function(req, res) {
-    db.Hiker.create(req.body).then(function(dbHiker) {
+  // Create a new hiker
+  hiker.post("/api/hiker", function(req, res) {
+    db.hiker.create(req.body).then(function(dbHiker) {
+      console.log(req.body);
       res.json(dbHiker);
-    });
+          });
   });
 
-  // Delete an example by id
-  app.delete("/api/hiker/:id", function(req, res) {
-    db.Hiker.destroy({ where: { id: req.params.id } }).then(function(dbHiker) {
+  // Delete a hiker by id
+  hiker.delete("/api/hiker/:id", function(req, res) {
+    db.hiker.destroy({ where: { id: req.params.id } }).then(function(dbHiker) {
       res.json(dbHiker);
     });
   });
-  Hiker.associate = function(models) {
-    Hiker.belongsTo(models.Hike, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // connect hikers to mountain
+  // hiker.associate = function(models) {
+  //   hiker.belongsTo(models.hike, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  //};
 };
