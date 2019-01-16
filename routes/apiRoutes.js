@@ -2,11 +2,10 @@ var db = require("../models");
 
 module.exports = function(hiker) {
   // Get logged in hiker
-  hiker.get("/api/hiker/:id", function(req, res) {
-    db.hiker.findOne({
+  hiker.get("/api/hiker/:user", function(req, res) {
+   db.hiker.findOne({
       where: {
-        user: req.body.user,
-        password: req.body.password
+        user: req.params.user,
       },
     }).then(function(dbHiker) {
       res.json(dbHiker);
@@ -22,8 +21,8 @@ module.exports = function(hiker) {
   });
 
   // Delete a hiker by id
-  hiker.delete("/api/hiker/:id", function(req, res) {
-    db.hiker.destroy({ where: { id: req.params.id } }).then(function(dbHiker) {
+  hiker.delete("/api/hiker/:user", function(req, res) {
+    db.hiker.destroy({where: { user: req.params.user } }).then(function(dbHiker) {
       res.json(dbHiker);
     });
   });

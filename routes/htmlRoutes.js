@@ -6,10 +6,10 @@ module.exports = function(app) {
     // db.Example.findAll({}).then(function(dbExamples) {
     res.render("index", {
       msg: "Welcome!",
-// examples: dbExamples
+    // examples: dbExamples
       // });
     });
-  })
+  });
   app.get("/profile", function(req, res) {
    
     res.render("example", {
