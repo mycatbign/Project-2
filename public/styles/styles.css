@@ -1,6 +1,10 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+ #sign-up-modal{
+   display:block;
+ }
 .map {
   height: 250px;  
   width: 250px;
