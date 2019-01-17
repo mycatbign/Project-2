@@ -53,14 +53,12 @@ require("./routes/htmlRoutes")(app);
 
 //serialize
 // passport.serializeUser(function(user, done) {
- 
 //   done(null, user.id);
 
 // });
 
-// deserialize user 
+// deserialize user
 // passport.deserializeUser(function(id, done) {
- 
 //   User.findById(id).then(function(user) {
 
 //       if (user) {
