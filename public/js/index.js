@@ -1,6 +1,7 @@
 // Get references to page elements
 var $username = $("#defaultForm-new-user");
 var $password = $("#defaultForm-new-pass");
+var $firstname = $("#defaultForm-first-name");
 
 $(".sign-in-display").hide();
 
@@ -54,7 +55,13 @@ $("document").ready(function() {
 
   //if user clicks yes in delete modal it deletes user profile
   $(document).on("click", "#confirm-delete-button", function() {
-    handleDeleteBtnClick();
+    var idToDelete = $("#username-input").text();
+
+    API.deleteExample(idToDelete).then(function() {
+      console.log("Profile " + idToDelete + " deleted");
+      signedOut();
+      $("#delete-modal").modal("toggle");
+    });
   });
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -94,9 +101,13 @@ $("document").ready(function() {
     API.getExamples($userLogin).then(function(data) {
       if (data) {
         console.log(data.user);
+        console.log(data);
+        var profileimage = data.image;
         $("#sign-in-modal").modal("toggle");
         signedIn();
+        var image = $("<img> </img>").attr("src", profileimage);
         $("#username-input").text(data.user);
+        $("#username-input").append(image);
       } else {
         alert("I'm sorry that username or password is incorrect.");
       }
@@ -108,7 +119,18 @@ $("document").ready(function() {
   var handleFormSubmit = function() {
     var newHiker = {
       user: $username.val().trim(),
-      password: $password.val().trim()
+      password: $password.val().trim(),
+      firstName: $firstname.val().trim(),
+      lastName: $("#defaultForm-last-name")
+        .val()
+        .trim(),
+      displayName: $("#defaultForm-display-name")
+        .val()
+        .trim(),
+      information: $("#defaultForm-new-info")
+        .val()
+        .trim(),
+      image: $(".image-file").val()
     };
 
     if (!(newHiker.user && newHiker.password)) {
@@ -118,14 +140,25 @@ $("document").ready(function() {
     API.saveExample(newHiker)
       .then(function() {
         $("#sign-in-modal").modal("toggle");
-        refreshExamples();
+        var saveNew = newHiker.user;
+        API.getExamples(saveNew).then(function(data) {
+          if (data) {
+            console.log(data.user);
+            console.log(data);
+            var profileimage = data.image;
+            $("#sign-in-modal").modal("toggle");
+            signedIn();
+            var image = $("<img> </img>").attr("src", profileimage);
+            $("#username-input").text(data.user);
+            $("#username-input").append(image);
+          } else {
+            alert("I'm sorry that username or password is incorrect.");
+          }
+        });
       })
       .fail(function() {
         console.log("sorry that username is already taken");
       });
-
-    // $exampleText.val("");
-    // $exampleDescription.val("");
   };
   var signedIn = function() {
     console.log("You are successfully signed in");
@@ -144,14 +177,3 @@ $("document").ready(function() {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 
-//*****not done yet*****
-
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(".user-login-info").val();
-  // .parent()
-  // .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    console.log("Profile deleted");
-  });
-};

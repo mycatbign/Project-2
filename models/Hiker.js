@@ -21,14 +21,39 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [7, 15]
       }
-    }
+    },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [7, 15]
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [7, 15]
+      }
+    },
+    displayName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [7, 15]
+      }
+    },
 
-    // info: {
-    //   type: DataTypes.TEXT,
-    //   validate: {
-    //     len: [1, 200]
-    //   }
-    // }
+    information: {
+      type: DataTypes.TEXT,
+      validate: {
+        len: [1, 200]
+      }
+    },
+    image: {
+      type: DataTypes.BLOB,
+      allowNull: false
+    }
   });
   return hiker;
 };
