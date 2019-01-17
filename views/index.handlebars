@@ -22,13 +22,14 @@
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
-              <input type="password" class = "password-login-info" id="defaultForm-Pass" class="form-control validate">
+              <input type="password" class="password-login-info" id="defaultForm-Pass" class="form-control validate">
             </div>
             <div class="modal-footer">
               <div id="switch-sign-up">New User</button>
+              </div>
                 <button type="button" id="start-sign-in" class="btn btn-primary">Sign In</button>
                 <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
-              </div>
+              
             </div>
           </div>
 
@@ -43,7 +44,7 @@
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Create password</label>
-              <input type="password" class = "password-login-info" id="defaultForm-new-pass" class="form-control validate">
+              <input type="password" class="password-login-info" id="defaultForm-new-pass" class="form-control validate">
             </div>
 
             <div class="md-form mb-4">
@@ -65,9 +66,30 @@
       </div>
     </div>
   </div>
-
-
   {{!-- ************************* --}}
+  {{!-- delete profile modal --}}
+  <div class="modal fade  " id="delete-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign in</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <p>Are you sure you want to delete your profile?</p>
+         <div class="modal-footer">
+             <button type="button" id="confirm-delete-button" class="btn btn-primary">Yes</button>
+              <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- ***************************************** --}}
+
   <div class="container">
 
     <div class="row">
@@ -77,45 +99,35 @@
       <div class="col-2">
         <div id="element" class="btn btn-default sign-up">Sign up</div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Take a hike!</h2>
-        <form class="clearfix mb-4" action="POST">
-
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.Name}}</a>
-             <strong>Elevation</strong>: {{this.Elevation}}
-             <button class="btn float-right ">Check box</button>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-
-          {{/each}}
-        </ul>
-      </div>
-
-    </div>
-
-
+       </div>
+<div class = "row">
+  <div class = "col-md-6">
+<div id ="username-input"></div>
   </div>
-  <div class="test"></div>
+</div>
+<div class = "row sign-in-display">
+  <div class = "col-md-2">
+   <div id="element" class="btn btn-default delete-profile">Delete Profile</div>
+  </div>
+  <div class="col-2">
+        <div id="element" class="btn btn-default sign-out">Sign out</div>
+      </div>
+</div>
+    <div class="jumbotron jumbotron-fluid opa60">
+      <div class="  container">
+        <h1 class="text-center lgtyellow">Take a Hike</h1>
+        <h3 class="text-center lgtyellow">Hike your way through the 48 4000 foot mountains of NH </h3>
+        <h3 class="text-center lgtyellow">Track your progress, plan a hike and connect with other hikers </h3>
+        <div class="col-md-16 text-center">
+          <button id="singlebutton" name="singlebutton" class="btn btn-link lgtyellow">Let's Get Started!</button>
+        </div>
+      </div>
+      <div>
+        <img id="backgroundimage" src="/images/10677.jpg" alt="">
+      </div>
+    </div>
+    </div>
+</div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

@@ -3,6 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
+var path = require("path");
 
 var app = express();
 var passport = require("passport");
@@ -30,6 +31,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use("/static", express.static(path.join(__dirname, "public")));
 
 // Handlebars
 app.engine(

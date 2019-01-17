@@ -2,14 +2,15 @@
 // require("sequelize-isunique-validator")(Sequelize);
 module.exports = function(sequelize, DataTypes) {
   var hiker = sequelize.define("hiker", {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-    },
+    // id: {
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    //   type: DataTypes.INTEGER
+    // },
     user: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true,
       validate: {
         len: [1, 16]
       }

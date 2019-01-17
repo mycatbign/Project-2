@@ -11,6 +11,13 @@ module.exports = function(hiker) {
       res.json(dbHiker);
     });
   });
+  hiker.get("/api/hiker", function(req, res) {
+   db.hiker.findAll({
+     
+    }).then(function(dbHiker) {
+      res.json(dbHiker);
+    });
+  });
 
   // Create a new hiker
   hiker.post("/api/hiker", function(req, res) {
