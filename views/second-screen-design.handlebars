@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -9,7 +9,7 @@
     <title>Second Screen Design</title>
 </head>
 
-<body>
+<body> -->
 
     <div class="container">
 
@@ -27,16 +27,16 @@
                 <!-- display sign in or sign out button -->
                 <!-- we will unhide whichever button is relevent to the hiker -->
                 <br>
-
-                <!-- if the hiker is signed in we unhide the sign out button and display hiker info -->
-                <button id="signOutBtn" class="btn-success btn-block hide">Sign Out</button>
-                <!-- if the hiker is not signed in we display the sign in button-->
-                <button id="signInBtn" class="btn-success btn-block hide">Sign In</button>
-
-                <!-- if the hiker is signed in we display hiker info -->
-                <p id="hikerName"><strong>Jack-the-Hiker</strong></p>
+<!-- if the hiker is signed in we display hiker info -->
+                <p id="username-input"></p>
                 <img id="hikerPic" src="../public/images/jack.jpg" alt="Hiker Pic">
                 <br>
+                <!-- if the hiker is signed in we unhide the sign out button and display hiker info -->
+                <button id="signOutBtn" class="btn-success btn-block hide">Sign Out</button>
+                {{!-- <!-- if the hiker is not signed in we display the sign in button-->
+                <button id="signInBtn" class="btn-success btn-block hide">Sign In</button> --}}
+
+                
 
                 <!-- if the hiker is signed in we can display the My Hikes feature-->
                 <button id="myHikesBtn" class="btn-success btn-block hide">My Hikes</button>
@@ -53,7 +53,7 @@
             <div id="hikerDisplay" class="col-9">
                 <!-- display mountains already hiked -->
                 <div class="row">
-                    Display Space
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1uOqwaKQq791rvS58dFlk9QRL63x4yFUm" width="840" height="440"></iframe>
                     <!-- <img src="../public/images/TAH.JPG" alt="Mountain View"> -->
                 </div> <!-- end display mountains already hiked -->
                 <!-- display google map so hiker can research mountains and hikes -->
@@ -70,6 +70,10 @@
 
     </div> <!-- end container -->
 
-</body>
+<!-- </body>
 
-</html>
+</html> -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
