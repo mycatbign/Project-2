@@ -102,12 +102,16 @@ $("document").ready(function() {
       if (data) {
         console.log(data.user);
         console.log(data);
-        var profileimage = data.image;
-        $("#sign-in-modal").modal("toggle");
-        signedIn();
-        var image = $("<img> </img>").attr("src", profileimage);
-        $("#username-input").text(data.user);
-        $("#username-input").append(image);
+        // var profileimage = data.image;
+        // $("#sign-in-modal").modal("toggle");
+        // signedIn();
+        // var image = $("<img> </img>").attr("src", profileimage);
+        window.open("/profile", "_self");
+        $(window).load(function() {
+          $("#username-input").text(data.user);
+        });
+        // $("#username-input").text(data.user);
+        // $("#username-input").append(image);
       } else {
         alert("I'm sorry that username or password is incorrect.");
       }
@@ -145,12 +149,12 @@ $("document").ready(function() {
           if (data) {
             console.log(data.user);
             console.log(data);
-            var profileimage = data.image;
-            $("#sign-in-modal").modal("toggle");
-            signedIn();
-            var image = $("<img> </img>").attr("src", profileimage);
-            $("#username-input").text(data.user);
-            $("#username-input").append(image);
+            // var profileimage = data.image;
+            // $("#sign-in-modal").modal("toggle");
+            // signedIn();
+            // var image = $("<img> </img>").attr("src", profileimage);
+            // $("#username-input").text(data.user);
+            // $("#username-input").append(image);
           } else {
             alert("I'm sorry that username or password is incorrect.");
           }
@@ -160,12 +164,12 @@ $("document").ready(function() {
         console.log("sorry that username is already taken");
       });
   };
-  var signedIn = function() {
-    console.log("You are successfully signed in");
-    $(".sign-in-display").show();
-    $(".sign-up").hide();
-    $(".sign-in").hide();
-  };
+  // var signedIn = function() {
+  //   console.log("You are successfully signed in");
+  //   $(".sign-in-display").show();
+  //   $(".sign-up").hide();
+  //   $(".sign-in").hide();
+  //};
   var signedOut = function() {
     console.log("You are successfully signed in");
     $("#username-input").empty();
@@ -176,4 +180,3 @@ $("document").ready(function() {
 });
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-
