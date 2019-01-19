@@ -43,7 +43,7 @@ module.exports = function(app) {
   app.get("/api/mountains", function(req, res) {
     db.example.findAll({}).then(function(data) {
       res.json(data);
-    }).catch(err => {
+    }).catch(function(err) {
       console.log(err);
     });
   });

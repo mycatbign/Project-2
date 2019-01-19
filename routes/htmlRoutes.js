@@ -31,7 +31,7 @@ module.exports = function(app) {
       res.render("second-screen-design", {
         mtns: data
       });
-    }).catch(err => {
+    }).catch(function(err) {
       console.log(err);
     });
   });
