@@ -1,4 +1,16 @@
-
+#profile-section {
+  /* background-color:rgb(228, 126, 31) */
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat
+}
+#username-input{
+    color:rgb(34, 54, 48)
+}
+.profile-button{
+    background-color:rgb(34, 54, 48);
+    color: rgba(245, 245, 245, 0.685)
+}
 html {
     height: 100%;
 }

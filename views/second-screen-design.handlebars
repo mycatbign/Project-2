@@ -1,79 +1,149 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/styles/jeff.css" media="screen" title="no title" charset="utf-8">
-    <title>Second Screen Design</title>
-</head>
-
-<body> -->
-
-    <div class="container">
-
-        <!-- header -->
-        <div id="hikerHeader" class="row">
-            <img id="hikerLogo" src="../public/images/logo1.png" alt="Take-a-Hike Logo">
+ {{!-- delete profile modal --}}
+<div class="modal fade  " id="delete-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sign in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete your profile?</p>
+        <div class="modal-footer">
+          <button type="button" id="confirm-delete-button" class="btn btn-primary">Yes</button>
+          <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">No</button>
         </div>
-
-        <!-- second screen content area is broken in to single row with 2 columns-->
-        <div id="hikerScreen" class="row">
-
-            <!-- profile column -->
-            <div id="hikerProfile" class="col-3">
-
-                <!-- display sign in or sign out button -->
-                <!-- we will unhide whichever button is relevent to the hiker -->
-                <br>
-<!-- if the hiker is signed in we display hiker info -->
-                <p id="username-input"></p>
-                <img id="hikerPic" src="../public/images/jack.jpg" alt="Hiker Pic">
-                <br>
-                <!-- if the hiker is signed in we unhide the sign out button and display hiker info -->
-                <button id="signOutBtn" class="btn-success btn-block hide">Sign Out</button>
-                {{!-- <!-- if the hiker is not signed in we display the sign in button-->
-                <button id="signInBtn" class="btn-success btn-block hide">Sign In</button> --}}
-
-                
-
-                <!-- if the hiker is signed in we can display the My Hikes feature-->
-                <button id="myHikesBtn" class="btn-success btn-block hide">My Hikes</button>
-
-                <!-- the following functions are available all the time-->
-                <button id="researchMapBtn" class="btn-success btn-block">Research My Next Hike</button>
-                <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button>
-                <button id="reviewBlogsBtn" class="btn-success btn-block">Review Blog</button>
-                <button id="nhWeatherBtn" class="btn-success btn-block">NH Weather Forecast</button>
-
-            </div> <!-- end profile column -->
-
-            <!-- main display area -->
-            <div id="hikerDisplay" class="col-9">
-                <!-- display mountains already hiked -->
-                <div class="row">
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1uOqwaKQq791rvS58dFlk9QRL63x4yFUm" width="840" height="440"></iframe>
-                    <!-- <img src="../public/images/TAH.JPG" alt="Mountain View"> -->
-                </div> <!-- end display mountains already hiked -->
-                <!-- display google map so hiker can research mountains and hikes -->
-                <div class="row">
-                </div> <!-- end display googke maps -->
-            </div> <!-- end main display area column -->
-
-        </div> <!-- end second screen row -->
-
-        <!-- footer -->
-        <div id="hikerFooter" class="row">
-            A TRBL Coders Design 2019
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{{!-- ***************************************** --}}
+<div class="modal fade  " id="friend-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">We found that Hiker!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class = "col-md-4 friend-pic"></div>
+          <div class = "col-md-4 friend-name"></div>
+                  </div>
+                  <div class="row">
+                    <div class = "col-md-10 friend-info"></div>
+                  </div>
+                  <p>Add a Hiker friend</p>
+        <div class="modal-footer">
+          <button type="button" id="add-friend" class="btn btn-primary">Yes</button>
+          <button type="submit" id="decline" class="btn btn-primary" data-dismiss="modal">No</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{{!-- *************************************************** --}}
 
-    </div> <!-- end container -->
+<div class="container">
+
+  <!-- header -->
+  <div id="hikerHeader" class="row">
+    <img id="hikerLogo" src="../public/images/logo1.png" alt="Take-a-Hike Logo">
+  </div>
+  <div class="jumbotron" id="profile-section">
+    <!-- profile column -->
+    <h1 id="username-input"></h1>
+    <p class="bio lead">.</p>
+    <hr class="my-4">
+    <p>Mountains Hiked</p>
+    <div class="row profile-buttons">
+      <div class="col-md-2 mx-0">
+        <a class="btn profile-button  sign-out" href="#" role="button">Sign Out</a>
+      </div>
+      <div class="col-md-2 ">
+        <div id="element" class="btn profile-button delete-profile">Delete Profile</div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="defaultForm">Enter a hikers name</label>
+          <input type="username" class="display-name-search" id="defaultForm-friend-input" class="form-control validate">
+        </div>
+      </div>
+      </div>
+      <div class="col-md-2 ">
+        <div id="element" class="btn profile-button  find-hikers">Find Hiker</div>
+      </div>
+    
+
+  </div>
+
+  <!-- second screen content area is broken in to single row with 2 columns-->
+  <div id="hikerScreen" class="row">
+
+
+
+
+    <!-- display sign in or sign out button -->
+    <!-- we will unhide whichever button is relevent to the hiker -->
+    <br>
+    <!-- if the hiker is signed in we display hiker info -->
+    {{!--
+    <p id="username-input"></p> --}}
+    <img id="hikerPic" src="" alt="Hiker Pic">
+    <br>
+
+
+
+    <!-- if the hiker is signed in we can display the My Hikes feature-->
+    <button id="myHikesBtn" class="btn-success btn-block hide">My Hikes</button>
+
+    <!-- the following functions are available all the time-->
+    <button id="researchMapBtn" class="btn-success btn-block">Research My Next Hike</button>
+    <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button>
+    <button id="reviewBlogsBtn" class="btn-success btn-block">Review Blog</button>
+    <button id="nhWeatherBtn" class="btn-success btn-block">NH Weather Forecast</button>
+
+  </div>
+  <!-- end profile column -->
+
+  <!-- main display area -->
+  <div id="hikerDisplay" class="col-9">
+    <!-- display mountains already hiked -->
+    <div class="row">
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1uOqwaKQq791rvS58dFlk9QRL63x4yFUm" width="840" height="440"></iframe>
+      <!-- <img src="../public/images/TAH.JPG" alt="Mountain View"> -->
+    </div>
+    <!-- end display mountains already hiked -->
+    <!-- display google map so hiker can research mountains and hikes -->
+    <div class="row">
+    </div>
+    <!-- end display googke maps -->
+  </div>
+  <!-- end main display area column -->
+
+</div>
+<!-- end second screen row -->
+
+<!-- footer -->
+<div id="hikerFooter" class="row">
+  A TRBL Coders Design 2019
+</div>
+
+</div>
+<!-- end container -->
 
 <!-- </body>
 
 </html> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/profile.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
   crossorigin="anonymous"></script>

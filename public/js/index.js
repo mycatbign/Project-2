@@ -4,64 +4,51 @@ var $password = $("#defaultForm-new-pass");
 var $firstname = $("#defaultForm-first-name");
 
 $(".sign-in-display").hide();
-
-//modal logic
+//function that displays sign in info
+var showSignIn = function() {
+  $("#sign-up-text").hide();
+  $("#sign-in-text").show();
+};
+//function that shows sign up info
+var showSignUp = function() {
+  $("#sign-in-text").hide();
+  $("#sign-up-text").show();
+};
+// do this when document is ready
 $("document").ready(function() {
   // on load a sign in modal pops up
   $("#sign-in-modal").modal("show");
-  $("#sign-up-text").hide();
+  showSignIn();
   // if user clicks new user it switches to sign up script
   $(document).on("click", "#switch-sign-up", function(event) {
     $("#sign-in-modal").modal("show");
     event.preventDefault();
     console.log("switch modals");
-    $("#sign-in-text").hide();
-    $("#sign-up-text").show();
+    showSignUp();
   });
   // if on sign up modal and clicks return to sign in it switches to sign in script
   $(document).on("click", "#return-to-sign-in", function() {
-    $("#sign-up-text").hide();
-    $("#sign-in-text").show();
+    showSignIn();
   });
   //if user closes model and then clicks sign up button at top of screen it brings up model with sign up script
   $(document).on("click", ".sign-up", function() {
     console.log("working");
     $("#sign-in-modal").modal("toggle");
-    $("#sign-in-text").hide();
-    $("#sign-up-text").show();
+    showSignUp();
   });
   //if user closes model and then clicks sign in button at top of screen it brings up model with sign in script
   $(document).on("click", ".sign-in", function() {
     $("#sign-in-modal").modal("toggle");
-    $("#sign-up-text").hide();
-    $("#sign-in-text").show();
+    showSignIn();
   });
-  // if user clicks sign out it signs out user
-  $(document).on("click", ".sign-out", function() {
-    signedOut();
-  });
+  //if user clicks sign up on modal starts submitting info
   $(document).on("click", "#start-sign-up", function() {
     handleFormSubmit();
   });
+  //if user clicks sign in on modal starts submitting info
   $(document).on("click", "#start-sign-in", function() {
-    $("#sign-up-text").hide();
-    $("#sign-in-text").show();
+    showSignIn();
     refreshExamples();
-  });
-  // if user clicks delete it pops up a modal for confirmation
-  $(document).on("click", ".delete-profile", function() {
-    $("#delete-modal").modal("toggle");
-  });
-
-  //if user clicks yes in delete modal it deletes user profile
-  $(document).on("click", "#confirm-delete-button", function() {
-    var idToDelete = $("#username-input").text();
-
-    API.deleteExample(idToDelete).then(function() {
-      console.log("Profile " + idToDelete + " deleted");
-      signedOut();
-      $("#delete-modal").modal("toggle");
-    });
   });
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -100,18 +87,15 @@ $("document").ready(function() {
     }
     API.getExamples($userLogin).then(function(data) {
       if (data) {
-        console.log(data.user);
-        console.log(data);
-        // var profileimage = data.image;
-        // $("#sign-in-modal").modal("toggle");
-        // signedIn();
-        // var image = $("<img> </img>").attr("src", profileimage);
+        // create user data object
+        var profileData = {
+          user: data.user,
+          profileImage: data.image,
+          userBio: data.information,
+          displayName: data.displayName
+        };
+        localStorage.setItem("userinfo", JSON.stringify(profileData));
         window.open("/profile", "_self");
-        $(window).load(function() {
-          $("#username-input").text(data.user);
-        });
-        // $("#username-input").text(data.user);
-        // $("#username-input").append(image);
       } else {
         alert("I'm sorry that username or password is incorrect.");
       }
@@ -149,12 +133,14 @@ $("document").ready(function() {
           if (data) {
             console.log(data.user);
             console.log(data);
-            // var profileimage = data.image;
-            // $("#sign-in-modal").modal("toggle");
-            // signedIn();
-            // var image = $("<img> </img>").attr("src", profileimage);
-            // $("#username-input").text(data.user);
-            // $("#username-input").append(image);
+            var profileData = {
+              user: data.user,
+              profileImage: data.image,
+              userBio: data.information,
+              displayName: data.displayName
+            };
+            localStorage.setItem("userinfo", JSON.stringify(profileData));
+            window.open("/profile", "_self");
           } else {
             alert("I'm sorry that username or password is incorrect.");
           }
@@ -163,19 +149,6 @@ $("document").ready(function() {
       .fail(function() {
         console.log("sorry that username is already taken");
       });
-  };
-  // var signedIn = function() {
-  //   console.log("You are successfully signed in");
-  //   $(".sign-in-display").show();
-  //   $(".sign-up").hide();
-  //   $(".sign-in").hide();
-  //};
-  var signedOut = function() {
-    console.log("You are successfully signed in");
-    $("#username-input").empty();
-    $(".sign-in-display").hide();
-    $(".sign-up").show();
-    $(".sign-in").show();
   };
 });
 // handleDeleteBtnClick is called when an example's delete button is clicked
