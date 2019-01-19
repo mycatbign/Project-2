@@ -2,6 +2,11 @@
 var $username = $("#defaultForm-new-user");
 var $password = $("#defaultForm-new-pass");
 var $firstname = $("#defaultForm-first-name");
+// var displayAvatar=function(imagetext, animal){
+//   if (imagetext=== animal)
+
+// }
+
 
 $(".sign-in-display").hide();
 //function that displays sign in info
@@ -20,6 +25,12 @@ $("document").ready(function() {
   $("#sign-in-modal").modal("show");
   showSignIn();
   // if user clicks new user it switches to sign up script
+
+  // $(document).on("click", ".profile-pic-options", function(event) {
+  // //   var image= $(".profile-pic-options").val()
+  // //   $(".image-selection").html(image)
+  // }
+
   $(document).on("click", "#switch-sign-up", function(event) {
     $("#sign-in-modal").modal("show");
     event.preventDefault();
@@ -90,7 +101,7 @@ $("document").ready(function() {
         // create user data object
         var profileData = {
           user: data.user,
-          profileImage: data.image,
+          profileImage: data.imagetext,
           userBio: data.information,
           displayName: data.displayName
         };
@@ -118,7 +129,7 @@ $("document").ready(function() {
       information: $("#defaultForm-new-info")
         .val()
         .trim(),
-      image: $(".image-file").val()
+      imagetext: $(".image-file option:selected").val()
     };
 
     if (!(newHiker.user && newHiker.password)) {
@@ -135,7 +146,7 @@ $("document").ready(function() {
             console.log(data);
             var profileData = {
               user: data.user,
-              profileImage: data.image,
+              profileImage: data.imagetext,
               userBio: data.information,
               displayName: data.displayName
             };

@@ -50,8 +50,8 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 200]
       }
     },
-    image: {
-      type: DataTypes.BLOB,
+    imagetext: {
+      type: DataTypes.TEXT,
       allowNull: false
     }
   });

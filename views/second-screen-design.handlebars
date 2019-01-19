@@ -57,7 +57,14 @@
   
       <div class="jumbotron" id="profile-section">
     <!-- profile column -->
+    <div class="row">
+      <div class = "col-md-2">
+        <img id="hikerPic" src=""> </img>
+        </div>
+        <div class="col-md-2">
     <h1 id="username-input"></h1>
+    </div>
+    </div>
     <p class="bio lead">.</p>
     <hr class="my-4">
     <p>Mountains Hiked</p>
@@ -76,9 +83,10 @@
           <input type="username" class="display-name-search" id="defaultForm-friend-input" class="form-control validate">
         </div>
       </div>
-      </div>
+      
       <div class="col-md-2 ">
         <div id="element" class="btn profile-button  find-hikers">Find Hiker</div>
+      </div>
       </div>
     
 
@@ -95,7 +103,7 @@
             <br>
             <!-- if the hiker is signed in we display hiker info -->
             <p id="username-input"></p>
-            <img id="hikerPic" src="/images/jack.jpg" alt="Hiker Pic">
+            {{!-- <img id="hikerPic" src="/images/jack.jpg" alt="Hiker Pic"> --}}
             <br>
             <!-- if the hiker is signed in we unhide the sign out button and display hiker info -->
             <button id="signOutBtn" class="btn-success btn-block hide">Sign Out</button>

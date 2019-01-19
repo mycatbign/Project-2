@@ -7,11 +7,26 @@ $("document").ready(function() {
   //pase the value 
   var userinput = JSON.parse(userData);
   console.log(userinput); 
+  // if (userinput.profileImage === "Bear") {
+  //   hikerImage.attr("src", "./images/profile-images/Bear.jpg");
+  // };
+  var showPic = function(animal, pic){
+    if (userinput.profileImage === animal) {
+      hikerImage.attr("src", pic).width("100").height("100")
+      // hikerImage.attr("width", "50")
+    };
+  };
+  showPic("Bear", "./images/profile-images/Bear.jpg");
+  showPic("Cat", "./images/profile-images/Cat.jpg");
+  showPic("Dragon", "./images/profile-images/Dragon.jpg");
+  showPic("Goat", "./images/profile-images/Goat.jpg");
+  showPic("Koala", "./images/profile-images/Koala.jpg");
+  showPic("Panda", "./images/profile-images/Panda.jpg");
+  showPic("Pig", "./images/profile-images/Pig.jpg");
+  showPic("Squirrel", "./images/profile-images/Squirrel.jpg");
   hikerName.text(userinput.displayName);
   hikerBio.text(userinput.userBio);
-  // var image = $("<img> </img>").attr("src", userinput.profileImage);
-  hikerImage.attr("src", userinput.profileImage);
-  // $("#username-input").append(image)
+
   // if user clicks sign out it signs out user
   $(document).on("click", ".sign-out", function() {
     signedOut();
