@@ -1,3 +1,7 @@
+/* ============================================================ */
+/* css for modal */
+/* ============================================================ */
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -9,4 +13,176 @@
   height: 250px;  
   width: 250px;
   margin: 10px;  
+}
+
+/* ============================================================ */
+/* css for second-screen-design */
+/* ============================================================ */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#hikerHeader {
+  height: 15%;
+  width: 100%;
+  background-color: rgb(3, 133, 89);
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+#hikerScreen {
+  height: 80%;
+  width: 100%;
+}
+
+#hikerProfile {
+  height: 100%;
+  width: 25%;
+  background-color: rgb(3, 133, 89);
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 5px;
+
+}
+
+#hikerDisplay {
+  height: 100%;
+  width: 75%;
+  background-color: rgb(3, 133, 89);
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+#hikerFooter {
+  height: 5%;
+  width: 100%;
+  background-color: rgb(3, 133, 89);
+  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+}
+
+#hikerLogo {
+}
+
+#hikerName {
+  color: white;
+  font-size: 30px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#hikerPic {
+  width: 80%;
+  height: 30%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 50%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+/* ============================================================ */
+/* css for main screen */
+/* ============================================================ */
+
+.bgImgCenter{
+  background-image: url('../Project-2/images/10677.jpg');
+  background-repeat: no-repeat;
+  background-position: center; 
+  position: relative;;
+}
+
+.jumbotron{
+  /* background-color: #2C561B!important; */
+  height: 50!important;
+}
+
+.jumbotron-fluid{
+  /* background-color: #2C561B!important; */
+  height: 50!important;
+  /* background: rgba(76, 175, 80, 0.6)!important; */
+  /* background: rgba(204, 204, 204, 0.5)!important; */
+  background: none !important;
+}
+
+#backgroundimage
+{
+ height: auto;
+ left: 0;
+ margin: 0;
+ min-height: 100%;
+ min-width: 674px;
+ padding: 0;
+ position: fixed;
+ top: 0px;
+ width: 100%;
+ z-index: -1;
+}
+
+.lgtgrn {
+  color: #7c8e00;
+  
+}
+
+.brn {
+  color: #704b35;
+}
+
+.lgtbrn {
+  color: #c06736;
+}
+
+.opa60 {
+  top: 500px;
+      background: rgba(76, 175, 80, 0.6);
+}
+
+.drkgrn {
+  color: #2C561B;
+}
+
+.lgtyellow {
+  color: #ffb700;
+}
+
+.pink {
+  color: #ee7653;
 }
