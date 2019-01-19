@@ -1,5 +1,5 @@
 $("document").ready(function() {
-console.log("loaded")
+  console.log("loaded")
   var hikerName = $("#username-input");
   var hikerBio = $(".bio");
   var hikerImage = $("#hikerPic");
@@ -7,10 +7,8 @@ console.log("loaded")
   //pase the value 
   var userinput = JSON.parse(userData);
   console.log(userinput); 
-    hikerName.text(userinput.displayName),
-    hikerBio.text(userinput.userBio)
-  
- 
+  hikerName.text(userinput.displayName);
+  hikerBio.text(userinput.userBio);
   // var image = $("<img> </img>").attr("src", userinput.profileImage);
   hikerImage.attr("src", userinput.profileImage);
   // $("#username-input").append(image)
@@ -69,12 +67,10 @@ console.log("loaded")
       type: "DELETE"
     });
   }
-    var findHikers  = function(user) {
-      return $.ajax({
-        url: "api/hiker/" + user,
-        type: "GET"
-      });
-    }
-
-
+  var findHikers  = function(user) {
+    return $.ajax({
+      url: "api/hiker/" + user,
+      type: "GET"
+    });
+  }
 });
