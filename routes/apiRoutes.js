@@ -1,8 +1,8 @@
 var db = require("../models");
 
-module.exports = function(hiker) {
+module.exports = function(app) {
   // Get logged in hiker
-  hiker.get("/api/hiker/:user", function(req, res) {
+  app.get("/api/hiker/:user", function(req, res) {
     db.hiker
       .findOne({
         where: {
@@ -13,14 +13,14 @@ module.exports = function(hiker) {
         res.json(dbHiker);
       });
   });
-  hiker.get("/api/hiker", function(req, res) {
+  app.get("/api/hiker", function(req, res) {
     db.hiker.findAll({}).then(function(dbHiker) {
       res.json(dbHiker);
     });
   });
 
   // Create a new hiker
-  hiker.post("/api/hiker", function(req, res) {
+  app.post("/api/hiker", function(req, res) {
     db.hiker.create(req.body).then(function(dbHiker) {
       console.log(req.body);
       res.json(dbHiker);
@@ -28,7 +28,7 @@ module.exports = function(hiker) {
   });
 
   // Delete a hiker by id
-  hiker.delete("/api/hiker/:user", function(req, res) {
+  app.delete("/api/hiker/:user", function(req, res) {
     db.hiker
       .destroy({
         where: {
@@ -39,6 +39,14 @@ module.exports = function(hiker) {
         res.json(dbHiker);
       });
   });
+
+  app.get("/api/mountains", function(req, res) {
+    db.example.findAll({}).then(function(data) {
+      res.json(data);
+    }).catch(err => {
+      console.log(err);
+    });
+  });
   // connect hikers to mountain
   // hiker.associate = function(models) {
   //   hiker.belongsTo(models.hike, {
@@ -48,3 +56,5 @@ module.exports = function(hiker) {
   //   });
   //};
 };
+
+

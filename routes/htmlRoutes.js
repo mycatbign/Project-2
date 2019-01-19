@@ -1,4 +1,5 @@
 require("../models");
+var db = require("../models");
 
 module.exports = function(app) {
   // Load index page
@@ -24,9 +25,22 @@ module.exports = function(app) {
   //     });
   //   });
   // });
+  
+  app.get("/mountains", function(req, res){
+    db.example.findAll({}).then(function(data) {
+      res.render("second-screen-design", {
+        mtns: data
+      });
+    }).catch(err => {
+      console.log(err);
+    });
+  });
 
+
+  
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
+
 };
