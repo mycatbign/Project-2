@@ -133,7 +133,13 @@
         </div> <!-- end main display area column -->
 
     </div> <!-- end second screen row -->
-
+    <div>
+      <select>
+       {{#each mtns}}
+         <option>{{this.Name}}</option>
+       {{/each}}
+      </select>
+    </div>
     <!-- footer -->
     <div id="hikerFooter" class="row">
         A TRBL Coders Design 2019

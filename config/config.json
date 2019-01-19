@@ -2,7 +2,9 @@
   "development": {
     "username": "root",
     "password": "Mango1988",
-    "database": "user",
+    "databases": "user",
+    "password": "Mango1988",
+    "databases": "mountain_db",
     "host": "localhost",
     "dialect": "mysql"
   },
