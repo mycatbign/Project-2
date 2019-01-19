@@ -1,90 +1,156 @@
+<!-- home -->
 <div id="home">
-  {{!-- sign in modal --}}
+
+  <!-- ====================================================================== -->
+  <!-- display main screen -->
+  <!-- ====================================================================== -->
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid opa60">
+      <!-- display wording on main screen -->
+      <div class="container">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 class="text-center lgtyellow">Take a Hike</h1>
+        <h3 class="text-center lgtyellow">Hike your way through the 48 4000 foot mountains of NH </h3>
+        <h3 class="text-center lgtyellow">Track your progress, plan a hike and connect with other hikers </h3>
+
+        <!-- lets get started link - currently disabled -->
+        {{!-- <div class="col-md-16 text-center">
+          <button id="singlebutton" name="singlebutton" class="btn btn-link lgtyellow">Let's Get Started!</button>
+        </div>  --}}
+        <!-- end lets get started link - currently disabled -->
+
+      </div> <!-- end display wording on main screen -->
+      <!-- display background image on main screen -->
+      <div>
+        <img id="backgroundimage" src="/images/10677.jpg" alt="">
+      </div> <!-- end display background image on main screen -->
+    </div> <!-- end display main screen -->
+  </div> <!-- end container for the main screen -->
+
+  <!-- ====================================================================== -->
+  <!-- sign in modal -->
+  <!-- ====================================================================== -->
   <div class="modal fade  " id="sign-in-modal" tabindex="-1" role="dialog">
+
+    <!-- modal-dialog -->
     <div class="modal-dialog" role="document">
+
+      <!-- modal-content -->
       <div class="modal-content">
+
+        <!-- display modal sign in box -->
         <div class="modal-header">
           <h5 class="modal-title">Sign in</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
+        </div> <!-- end display modal sign in box -->
+
+        <!-- display sign up and sign in modal -->
         <div class="modal-body">
 
+          <!-- ====================================================================== -->
+          <!-- existing hiker sign in -->
+          <!-- ====================================================================== -->
           <div id="sign-in-text">
             <p>Enter your information below to sign in</p>
+
+            <!-- get username -->
             <div class="md-form mb-5">
               <i class="fas fa-envelope prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-email">Your Username</label>
               <input type="username" class="user-login-info" id="defaultForm-user" class="form-control validate">
-            </div>
+            </div> <!-- end get username -->
 
+            <!-- get password -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
               <input type="password" class="password-login-info" id="defaultForm-Pass" class="form-control validate">
-            </div>
+            </div> <!-- end get password -->
+
+            <!-- new user sign-in and close buttons -->
             <div class="modal-footer">
               <div id="switch-sign-up">New User</button>
               </div>
-                <button type="button" id="start-sign-in" class="btn btn-primary">Sign In</button>
-                <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
-              
-            </div>
-          </div>
+              <button type="button" id="start-sign-in" class="btn btn-primary">Sign In</button>
+              <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div> <!-- end new user sign-in and close buttons -->
 
+          </div> <!-- end existing hiker sign in -->
+
+          <!-- ====================================================================== -->
+          <!-- set up new hiker profile -->
+          <!-- ====================================================================== -->
           <div id="sign-up-text">
             <p>Enter your information below to sign up</p>
+
+            <!-- create hiker username -->
             <div class="md-form mb-5">
               <i class="fas fa-envelope prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-email">Create Username</label>
               <input type="username" class="user-login-info" id="defaultForm-new-user" class="form-control validate">
-            </div>
+            </div> <!-- end create hiker username -->
 
+            <!-- create hiker password -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Create password</label>
               <input type="password" class="password-login-info" id="defaultForm-new-pass" class="form-control validate">
-            </div>
+            </div> <!-- end create hiker password -->
+
+            <!-- get hiker first name -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">First name:</label>
               <input type="name" id="defaultForm-first-name" class="form-control validate">
-            </div>
+            </div> <!-- end getting hiker first name -->
+
+            <!-- get hiker last name -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Last Name</label>
               <input type="name" id="defaultForm-last-name" class="form-control validate">
-            </div>
-<div class="md-form mb-4">
+            </div> <!-- end get hiker last name -->
+
+            <!-- get hiker display name -->
+            <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
-              <label data-error="wrong" data-success="right" for="defaultForm-pass">Create a display name for other users to see.</label>
+              <label data-error="wrong" data-success="right" for="defaultForm-pass">Create a display name for other
+                users to see.</label>
               <input type="display" id="defaultForm-display-name" class="form-control validate">
-            </div>
+            </div> <!-- end get hiker display name -->
+
+            <!-- get hiker short bio -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Tell us a bit about yourself</label>
               <input type="info" id="defaultForm-new-info" class="form-control validate">
-            </div>
+            </div> <!-- end get hiker short bio -->
+
+            <!-- get hiker profile image -->
             <div class="image-selector-div">
               <div>Insert a profile picture</div>
-             <input class= "image-file" type="file" accept="image/*" capture>
-</div>
+              <input class="image-file" type="file" accept="image/*" capture>
+            </div> <!-- end get hiker profile image -->
+
+            <!-- allow hiker to return to sign in -->
             <div class="modal-footer">
               <div id="return-to-sign-in">Return to Sign In
               </div>
-
               <button type="button" id="start-sign-up" class="btn btn-primary">Sign Up</button>
               <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div> <!-- end allow hiker to return to sign in -->
 
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{!-- ************************* --}}
-  {{!-- delete profile modal --}}
+          </div> <!-- end set up new hiker profile -->
+        </div> <!-- end display sign up and sign in modal -->
+      </div> <!-- end modal-content -->
+    </div> <!-- end modal-dialog -->
+  </div> <!-- sign in modal -->
+
+  <!-- ====================================================================== -->
+  <!-- delete profile modal -->
+  <!-- ====================================================================== -->
   <div class="modal fade  " id="delete-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -95,57 +161,18 @@
           </button>
         </div>
         <div class="modal-body">
-         <p>Are you sure you want to delete your profile?</p>
-         <div class="modal-footer">
-             <button type="button" id="confirm-delete-button" class="btn btn-primary">Yes</button>
-              <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">No</button>
-            </div>
+          <p>Are you sure you want to delete your profile?</p>
+          <div class="modal-footer">
+            <button type="button" id="confirm-delete-button" class="btn btn-primary">Yes</button>
+            <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">No</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  {{!-- ***************************************** --}}
 
-  <div class="container">
+</div> <!-- end home -->
 
-    <div class="row">
-      <div class="col-2">
-        <div id="element" class="btn btn-default sign-in">Sign in</div>
-      </div>
-      <div class="col-2">
-        <div id="element" class="btn btn-default sign-up">Sign up</div>
-      </div>
-       </div>
-<div class = "row">
-  <div class = "col-md-6">
-{{!-- <div id ="username-input"></div>
-  </div> --}}
-</div>
-<div class = "row sign-in-display">
-  <div class = "col-md-2">
-   <div id="element" class="btn btn-default delete-profile">Delete Profile</div>
-  </div>
-  <div class="col-2">
-        <div id="element" class="btn btn-default sign-out">Sign out</div>
-      </div>
-</div>
-    <div class="jumbotron jumbotron-fluid opa60">
-      <div class="  container">
-        <h1 class="text-center lgtyellow">Take a Hike</h1>
-        <h3 class="text-center lgtyellow">Hike your way through the 48 4000 foot mountains of NH </h3>
-        <h3 class="text-center lgtyellow">Track your progress, plan a hike and connect with other hikers </h3>
-        <div class="col-md-16 text-center">
-          <button id="singlebutton" name="singlebutton" class="btn btn-link lgtyellow">Let's Get Started!</button>
-        </div>
-      </div>
-      <div>
-        <img id="backgroundimage" src="/images/10677.jpg" alt="">
-      </div>
-    </div>
-    </div>
-</div>
-</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
