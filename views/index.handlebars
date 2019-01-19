@@ -8,24 +8,43 @@
     <div class="jumbotron jumbotron-fluid opa60">
       <!-- display wording on main screen -->
       <div class="container">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <h1 class="text-center lgtyellow">Take a Hike</h1>
         <h3 class="text-center lgtyellow">Hike your way through the 48 4000 foot mountains of NH </h3>
         <h3 class="text-center lgtyellow">Track your progress, plan a hike and connect with other hikers </h3>
 
         <!-- lets get started link - currently disabled -->
-        {{!-- <div class="col-md-16 text-center">
+        {{!--
+        <div class="col-md-16 text-center">
           <button id="singlebutton" name="singlebutton" class="btn btn-link lgtyellow">Let's Get Started!</button>
-        </div>  --}}
+        </div> --}}
         <!-- end lets get started link - currently disabled -->
 
-      </div> <!-- end display wording on main screen -->
+      </div>
+      <!-- end display wording on main screen -->
       <!-- display background image on main screen -->
       <div>
         <img id="backgroundimage" src="/images/10677.jpg" alt="">
-      </div> <!-- end display background image on main screen -->
-    </div> <!-- end display main screen -->
-  </div> <!-- end container for the main screen -->
+      </div>
+      <!-- end display background image on main screen -->
+    </div>
+    <!-- end display main screen -->
+  </div>
+  <!-- end container for the main screen -->
 
   <!-- ====================================================================== -->
   <!-- sign in modal -->
@@ -44,7 +63,8 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div> <!-- end display modal sign in box -->
+        </div>
+        <!-- end display modal sign in box -->
 
         <!-- display sign up and sign in modal -->
         <div class="modal-body">
@@ -60,14 +80,16 @@
               <i class="fas fa-envelope prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-email">Your Username</label>
               <input type="username" class="user-login-info" id="defaultForm-user" class="form-control validate">
-            </div> <!-- end get username -->
+            </div>
+            <!-- end get username -->
 
             <!-- get password -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
               <input type="password" class="password-login-info" id="defaultForm-Pass" class="form-control validate">
-            </div> <!-- end get password -->
+            </div>
+            <!-- end get password -->
 
             <!-- new user sign-in and close buttons -->
             <div class="modal-footer">
@@ -75,9 +97,11 @@
               </div>
               <button type="button" id="start-sign-in" class="btn btn-primary">Sign In</button>
               <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div> <!-- end new user sign-in and close buttons -->
+            </div>
+            <!-- end new user sign-in and close buttons -->
 
-          </div> <!-- end existing hiker sign in -->
+          </div>
+          <!-- end existing hiker sign in -->
 
           <!-- ====================================================================== -->
           <!-- set up new hiker profile -->
@@ -90,49 +114,60 @@
               <i class="fas fa-envelope prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-email">Create Username</label>
               <input type="username" class="user-login-info" id="defaultForm-new-user" class="form-control validate">
-            </div> <!-- end create hiker username -->
+            </div>
+            <!-- end create hiker username -->
 
             <!-- create hiker password -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Create password</label>
               <input type="password" class="password-login-info" id="defaultForm-new-pass" class="form-control validate">
-            </div> <!-- end create hiker password -->
+            </div>
+            <!-- end create hiker password -->
 
             <!-- get hiker first name -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">First name:</label>
               <input type="name" id="defaultForm-first-name" class="form-control validate">
-            </div> <!-- end getting hiker first name -->
+            </div>
+            <!-- end getting hiker first name -->
 
             <!-- get hiker last name -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Last Name</label>
               <input type="name" id="defaultForm-last-name" class="form-control validate">
-            </div> <!-- end get hiker last name -->
+            </div>
+            <!-- end get hiker last name -->
 
             <!-- get hiker display name -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
-              <label data-error="wrong" data-success="right" for="defaultForm-pass">Create a display name for other
-                users to see.</label>
+              <label data-error="wrong" data-success="right" for="defaultForm-pass">Create a display name for other users to see.</label>
               <input type="display" id="defaultForm-display-name" class="form-control validate">
-            </div> <!-- end get hiker display name -->
+            </div>
+            <!-- end get hiker display name -->
 
             <!-- get hiker short bio -->
             <div class="md-form mb-4">
               <i class="fas fa-lock prefix grey-text"></i>
               <label data-error="wrong" data-success="right" for="defaultForm-pass">Tell us a bit about yourself</label>
               <input type="info" id="defaultForm-new-info" class="form-control validate">
-            </div> <!-- end get hiker short bio -->
+            </div>
+            <!-- end get hiker short bio -->
 
             <!-- get hiker profile image -->
             <div class="image-selector-div">
               <div>Insert a profile picture</div>
-              <input class="image-file" type="file" accept="image/*" capture>
-            </div> <!-- end get hiker profile image -->
+              {{!--
+              <input class="image-file" type="file" accept="image/*" capture> --}}
+              <form action="/action_page.php">
+                <input class="image-file" type="file" name="pic" accept="image/*">
+                <input type="submit">
+              </form>
+            </div>
+            <!-- end get hiker profile image -->
 
             <!-- allow hiker to return to sign in -->
             <div class="modal-footer">
@@ -140,17 +175,23 @@
               </div>
               <button type="button" id="start-sign-up" class="btn btn-primary">Sign Up</button>
               <button type="submit" id="close-modal" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div> <!-- end allow hiker to return to sign in -->
+            </div>
+            <!-- end allow hiker to return to sign in -->
 
-          </div> <!-- end set up new hiker profile -->
-        </div> <!-- end display sign up and sign in modal -->
-      </div> <!-- end modal-content -->
-    </div> <!-- end modal-dialog -->
-  </div> <!-- sign in modal -->
+          </div>
+          <!-- end set up new hiker profile -->
+        </div>
+        <!-- end display sign up and sign in modal -->
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- sign in modal -->
+
 
   <!-- ====================================================================== -->
-  <!-- delete profile modal -->
-  <!-- ====================================================================== -->
+  {{!--
   <div class="modal fade  " id="delete-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -169,10 +210,36 @@
         </div>
       </div>
     </div>
+  </div> --}} {{!-- ************************* --}}
+
+
+</div>
+<!-- end home -->
+
+<div class="row">
+  <div class="col-2">
+    <div id="element" class="btn btn-default sign-in">Sign in</div>
   </div>
-
-</div> <!-- end home -->
-
+  <div class="col-2">
+    <div id="element" class="btn btn-default sign-up">Sign up</div>
+  </div>
+</div>
+<div class="jumbotron jumbotron-fluid opa60">
+  <div class="  container">
+    <h1 class="text-center lgtyellow">Take a Hike</h1>
+    <h3 class="text-center lgtyellow">Hike your way through the 48 4000 foot mountains of NH </h3>
+    <h3 class="text-center lgtyellow">Track your progress, plan a hike and connect with other hikers </h3>
+    <div class="col-md-16 text-center">
+      <button id="singlebutton" name="singlebutton" class="btn btn-link lgtyellow">Let's Get Started!</button>
+    </div>
+  </div>
+  <div>
+    <img id="backgroundimage" src="/images/10677.jpg" alt="">
+  </div>
+</div>
+</div>
+</div>
+</div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
