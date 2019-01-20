@@ -2,11 +2,6 @@
 var $username = $("#defaultForm-new-user");
 var $password = $("#defaultForm-new-pass");
 var $firstname = $("#defaultForm-first-name");
-// var displayAvatar=function(imagetext, animal){
-//   if (imagetext=== animal)
-
-// }
-
 
 $(".sign-in-display").hide();
 //function that displays sign in info
