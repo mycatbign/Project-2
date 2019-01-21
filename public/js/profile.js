@@ -1,4 +1,10 @@
+// declare var require: any;
+// var moment = require("moment");
+// var require : Noderequire
+// (id: "moment") => any
 $("document").ready(function() {
+  var trackhikes = [];
+  var uniquehikes = [];
   //only display google maps
   $(".manage-hikes-display").hide();
   $(".display-google-maps").show()
@@ -48,16 +54,40 @@ $("document").ready(function() {
   }
   // setting get hikes search parameter
   var hikerSearch = userinput.displayName;
+ 
   // calling function to display user hikes 
 gethikes(hikerSearch).then( function(data){
   console.log(data)
-  var hikedTotal = data.length;
-  $(".mountains-hiked").text("Mountains Hiked: " + hikedTotal)
-  for(i=0; i < hikedTotal; i++){
-    var mountain = $("<li></li>").text(data[i].mountain + data[1].datehiked + data[i].hourstaken + " hour[s] " + data[i].minutestaken + " minute[s] Difficulty Level: " + data[i].difficulty );
-
-   $(".mountains-hiked").append(mountain);
-  }
+  // var date =  data[1].datehiked.split("T")[0];
+  // $(".mountains-hiked-list").empty()
+  
+  for(i=0; i < data.length; i++){
+    
+    var date = data[i].datehiked.split("T")[0];
+      var mountain = $("<div></div>").text(data[i].mountain +" " + date + " " + data[i].hourstaken + " hour[s] " + data[i].minutestaken + " minute[s] Difficulty Level: " + data[i].difficulty ).addClass("hikes");
+      $(".mountains-hiked").append(mountain);
+      trackhikes.push(data[i].mountain);
+      //  console.log(trackhikes)
+      //  }
+      //  for (j=0; j< trackhikes; j++) {
+        // console.log(trackhikes)
+        $.each(trackhikes, function(i, el){
+          if($.inArray(el, uniquehikes) === -1) uniquehikes.push(el);
+    //       for(j=0; j<uniquehike.length; j++){
+    //       var newmountains = $("<li> </li").text(uniquehikes)
+    // $(".mountains-hiked-list").append(newmountains)
+    //       }
+        })
+  
+  // console.log(uniquehikes)
+  var hikedTotal = uniquehikes.length;
+    $(".mountains-hiked-list").text("Mountains Hiked: " + hikedTotal);
+    // for (j=0; j<uniquehike.length; j++) {
+      console.log(uniquehikes)
+      var newmountains = $("<div> </div").text(uniquehikes)
+      $(".mountains-hiked-list").append(newmountains)
+    
+       }
 })
 // ***************************On clicks*****************************************
   // if user clicks sign out it signs out user
@@ -115,6 +145,11 @@ gethikes(hikerSearch).then( function(data){
       }
     });
   });
+  // if user clicks Map it displays map
+  $(document).on("click", ".MapBtn", function(){
+    $(".manage-hikes-display").hide();
+    $(".display-google-maps").show()
+  })
   // if user clicks my hikes it displays hikes and option to add more hikes
   $(document).on("click", ".myHikesBtn", function(){
     $(".manage-hikes-display").show();
@@ -123,6 +158,9 @@ gethikes(hikerSearch).then( function(data){
 
   // if user clicks add a hike it is saved to database and displayed in mountains hiked section
   $(document).on("click", ".mountain-submit", function(){
+    $("#manage-hike-modal").modal("toggle");
+  });
+  $(document).on("click", "#add-hike", function(){
     console.log("click")
     var mount = $(".mountain").val().trim();
     var hikername = userinput.displayName;
@@ -145,10 +183,12 @@ console.log(hike)
       gethikes(hikerSearch).then( function(data){
         console.log(data)
         var hikedTotal = data.length;
-        $(".mountains-hiked").text("Mountains Hiked: " + hikedTotal)
+        $(".mountains-hiked-list").text("Mountains Hiked: " + hikedTotal)
         for(i=0; i < hikedTotal; i++){
-          var mountain = $("<li></li>").text(data[i].mountain + data[1].datehiked + data[i].hourstaken + " hour[s] " + data[i].minutestaken + " minute[s] Difficulty Level: " + data[i].difficulty );
+          var date = data[i].datehiked.split("T")[0];
+          var mountain = $("<div ></div>").text(data[i].mountain +" " + date + " " + data[i].hourstaken + " hour[s] " + data[i].minutestaken + " minute[s] Difficulty Level: " + data[i].difficulty ).addClass("hikes");
           $(".mountains-hiked").append(mountain);
+          $("#manage-hike-modal").modal("toggle");
         }
       })
 
@@ -161,7 +201,13 @@ console.log(hike)
   var signedOut = function() {
     console.log("You are successfully signed out");
     $("#username-input").empty();
-    window.open("/", "_self");
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.open("/", "_self");
+    }).catch(function(error) {
+      // An error happened.
+    });
+   
   };
   var deleteProfile = function(user) {
     return $.ajax({

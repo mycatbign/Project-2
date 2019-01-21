@@ -5,6 +5,10 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 var path = require("path");
 
+
+
+
+
 var app = express();
 var passport = require("passport");
 var session = require("express-session");

@@ -1,7 +1,91 @@
+// import firebase from 'firebase'
+// import firebase from 'firebase'
+// var firebase = require('firebase/auth')
+// Initialize Firebase
+
+ // or import FirebaseAuth from 'firebaseauth';
+// do this when document is ready
+$("document").ready(function() {
+  // import  {firebaseAuth}  from "./config/firebase";
+  // var serviceAccount = require("./config/firebase.json");
+  // var admin = require("firebase-admin");
+  // var firebaseApp = admin.initializeApp();
+  // var FirebaseAuth = require("firebaseauth");
+  
+  // firebaseApp({
+  //     // credential: admin.credential.cert(serviceAccount),
+  //   databaseURL: "https://hiker-cbbed.firebaseio.com"
+  // });
+  // Initialize Firebase
+  // var config = {
+  //   apiKey: "AIzaSyAs5pNDHjJX7k2YMjygsedAn2dYkgg-sfw",
+  //   authDomain: "hiker-cbbed.firebaseapp.com",
+  //   databaseURL: "https://hiker-cbbed.firebaseio.com",
+  //   projectId: "hiker-cbbed",
+  //   storageBucket: "hiker-cbbed.appspot.com",
+  //   messagingSenderId: "493397141061"
+  // };
+  // // var firebase = new firebaseAuth(process.env.AIzaSyAs5pNDHjJX7k2YMjygsedAn2dYkgg-sfw);
+
+  // firebase.initializeApp(config);
+
+
 // Get references to page elements
 var $username = $("#defaultForm-new-user");
 var $password = $("#defaultForm-new-pass");
 var $firstname = $("#defaultForm-first-name");
+// var user = firebase.auth().currentUser;
+// var auth = firebase.default.auth();
+// auth.onAuthStateChanged(function(user) {
+//   if (user) {
+//     // User is signed in.
+//   } else {
+//     // No user is signed in.
+//   }
+// });
+// function signup(){
+//   var email = $username.val().trim();
+//   var password = $password.val().trim()
+//  auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     window.alert("Error: " + errorMessage)
+//     // ...
+ 
+//   });
+  
+
+//   if (user){
+//   handleFormSubmit();
+// }
+// }
+
+// function signin() {
+//   var email = $username.val().trim();
+//   var password = $password.val().trim()
+//   auth.signInWithEmailAndPassword(email, password).catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     window.alert("Error: " + errorMessage)
+//     // ...
+//       });
+//       var user = auth.currentUser;
+//   if (user){
+//   refreshExamples();
+// }
+
+// }
+
+
+
+// if (user != null) {
+//   if (user != null) {
+//      var username = user.email;
+//      login();
+//    }
+ 
 
 $(".sign-in-display").hide();
 //function that displays sign in info
@@ -14,19 +98,12 @@ var showSignUp = function() {
   $("#sign-in-text").hide();
   $("#sign-up-text").show();
 };
-// do this when document is ready
-$("document").ready(function() {
+
   // on load a sign in modal pops up
   $("#sign-in-modal").modal("show");
   showSignIn();
   // if user clicks new user it switches to sign up script
-
-  // $(document).on("click", ".profile-pic-options", function(event) {
-  // //   var image= $(".profile-pic-options").val()
-  // //   $(".image-selection").html(image)
-  // }
-
-  $(document).on("click", "#switch-sign-up", function(event) {
+    $(document).on("click", "#switch-sign-up", function(event) {
     $("#sign-in-modal").modal("show");
     event.preventDefault();
     console.log("switch modals");
@@ -49,7 +126,7 @@ $("document").ready(function() {
   });
   //if user clicks sign up on modal starts submitting info
   $(document).on("click", "#start-sign-up", function() {
-    handleFormSubmit();
+   handleFormSubmit();
   });
   //if user clicks sign in on modal starts submitting info
   $(document).on("click", "#start-sign-in", function() {
@@ -127,10 +204,10 @@ $("document").ready(function() {
       imagetext: $(".image-file option:selected").val()
     };
 
-    if (!(newHiker.user && newHiker.password)) {
-      alert("You must enter a user name and password!");
-      return;
-    }
+    // if (!(newHiker.user && newHiker.password)) {
+    //   alert("You must enter a user name and password!");
+    //   return;
+    // }
     API.saveExample(newHiker)
       .then(function() {
         $("#sign-in-modal").modal("toggle");
@@ -156,6 +233,7 @@ $("document").ready(function() {
         console.log("sorry that username is already taken");
       });
   };
-});
+})
+
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list

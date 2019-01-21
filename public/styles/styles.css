@@ -139,12 +139,37 @@ body {
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: #3e8e41;
-}
+  }
 
 /* ============================================================ */
 /* css for main screen */
 /* ============================================================ */
 
+/* =============== css mountains ============================== */
+.manage-hikes-display {
+  background-color: #704b35
+}
+.mountains-hiked-title{
+  background-color:grey;
+  color:rgb(44, 44, 85);
+}
+.hikes{
+  background-color: rgb(44, 44, 85);
+  color: lightgrey;
+  border-color: #7c8e00;
+  border: 1px;
+  border-style: groove
+}
+.add-hike-header{
+  color:rgb(44, 44, 85);
+}
+.add-hike-section{
+  color:grey;
+}
+.add-hike-footer{
+  color:rgb(44, 44, 85);
+}
+/* ============================================================ */
 .bgImgCenter{
   background-image: url('../Project-2/images/10677.jpg');
   background-repeat: no-repeat;

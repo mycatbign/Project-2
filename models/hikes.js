@@ -21,8 +21,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     datehiked: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.DATEONLY,
+      allowNull: false      
     },
     difficulty: {
       type: DataTypes.INTEGER,
