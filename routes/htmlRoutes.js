@@ -28,12 +28,12 @@ module.exports = function(app) {
   // });
   
   app.get("/profile", function(req, res){
-    db.mountains.findAll({}).then(function(data) {
+    // db.mountains.findAll({}).then(function(data) {
       res.render("second-screen-design", {
-        mtns: data
-      });
-    }).catch(function(err) {
-      console.log(err);
+    //     mtns: data
+    //   });
+    // }).catch(function(err) {
+    //   console.log(err);
     });
   });
 
