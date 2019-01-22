@@ -1,7 +1,9 @@
 /* ============================================================ */
 /* css for modal */
 /* ============================================================ */
-
+.profile-pic-options{
+  width: 20px;
+}
 .list-group-item {
   line-height: 2.5;
 }
@@ -21,7 +23,9 @@
 /* ============================================================ */
 /* css for second-screen-design */
 /* ============================================================ */
-
+body{
+  background-color: whitesmoke
+}
 #profile-section {
   /* background-color:rgb(228, 126, 31) */
   height: 15%;
@@ -69,6 +73,7 @@ body {
 #hikerScreen {
   height: 70%;
   width: 100%;
+  margin-left: 2px
 }
 
 #hikerProfile {
@@ -102,6 +107,7 @@ body {
   border-radius: 5px;
   display: block;
   text-align: center;
+  margin-left: 2px
 }
 
 #hikerLogo {
@@ -150,25 +156,39 @@ body {
   background-color: #704b35
 }
 .mountains-hiked-title{
-  background-color:grey;
+  background-color:gray;
   color:rgb(44, 44, 85);
+  font-size: 30px;
+  font-family: cursive;
+  text-align: center
 }
 .hikes{
   background-color: rgb(44, 44, 85);
   color: lightgrey;
   border-color: #7c8e00;
   border: 1px;
-  border-style: groove
+  border-style: groove;
+  margin-bottom : 1px
 }
 .add-hike-header{
   color:rgb(44, 44, 85);
 }
 .add-hike-section{
-  color:grey;
+  color:#57ba98;
 }
 .add-hike-footer{
   color:rgb(44, 44, 85);
 }
+ .mountains-hiked-list{
+  background-color:(44, 44, 85);
+}
+.mountain-list-items{
+  background-color: gray;
+  border-color:#57ba98;
+  border:2px;
+  border-style: solid;
+  margin-bottom: 2px
+} 
 /* ============================================================ */
 .bgImgCenter{
   background-image: url('../Project-2/images/10677.jpg');
@@ -180,6 +200,7 @@ body {
 .jumbotron{
   /* background-color: #2C561B!important; */
   height: 50!important;
+
 }
 
 .jumbotron-fluid{
