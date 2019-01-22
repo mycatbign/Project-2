@@ -8,5 +8,4 @@ module.exports = function(sequelize, DataTypes) {
     Longitude: DataTypes.TEXT
   });
   return mountains;
-};
-  
+};  
