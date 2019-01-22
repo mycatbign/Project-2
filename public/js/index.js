@@ -1,21 +1,21 @@
-// Get references to page elements
-var $username = $("#defaultForm-new-user");
-var $password = $("#defaultForm-new-pass");
-var $firstname = $("#defaultForm-first-name");
-
-$(".sign-in-display").hide();
-//function that displays sign in info
-var showSignIn = function() {
-  $("#sign-up-text").hide();
-  $("#sign-in-text").show();
-};
-//function that shows sign up info
-var showSignUp = function() {
-  $("#sign-in-text").hide();
-  $("#sign-up-text").show();
-};
 // do this when document is ready
 $("document").ready(function() {
+  // Get references to page elements
+  var $username = $("#defaultForm-new-user");
+  var $password = $("#defaultForm-new-pass");
+  var $firstname = $("#defaultForm-first-name");
+  $(".sign-in-display").hide();
+  //function that displays sign in info
+  var showSignIn = function() {
+    $("#sign-up-text").hide();
+    $("#sign-in-text").show();
+  };
+  //function that shows sign up info
+  var showSignUp = function() {
+    $("#sign-in-text").hide();
+    $("#sign-up-text").show();
+  };
+
   // on load a sign in modal pops up
   $("#sign-in-modal").modal("show");
   showSignIn();
@@ -90,7 +90,7 @@ $("document").ready(function() {
         // create user data object
         var profileData = {
           user: data.user,
-          profileImage: data.image,
+          profileImage: data.imagetext,
           userBio: data.information,
           displayName: data.displayName
         };
@@ -118,13 +118,13 @@ $("document").ready(function() {
       information: $("#defaultForm-new-info")
         .val()
         .trim(),
-      image: $(".image-file").val()
+      imagetext: $(".image-file option:selected").val()
     };
 
-    if (!(newHiker.user && newHiker.password)) {
-      alert("You must enter a user name and password!");
-      return;
-    }
+    // if (!(newHiker.user && newHiker.password)) {
+    //   alert("You must enter a user name and password!");
+    //   return;
+    // }
     API.saveExample(newHiker)
       .then(function() {
         $("#sign-in-modal").modal("toggle");
@@ -135,7 +135,7 @@ $("document").ready(function() {
             console.log(data);
             var profileData = {
               user: data.user,
-              profileImage: data.image,
+              profileImage: data.imagetext,
               userBio: data.information,
               displayName: data.displayName
             };
@@ -151,5 +151,6 @@ $("document").ready(function() {
       });
   };
 });
+
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list

@@ -2,11 +2,6 @@
 // require("sequelize-isunique-validator")(Sequelize);
 module.exports = function(sequelize, DataTypes) {
   var hiker = sequelize.define("hiker", {
-    // id: {
-    //   autoIncrement: true,
-    //   primaryKey: true,
-    //   type: DataTypes.INTEGER
-    // },
     user: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -50,10 +45,18 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 200]
       }
     },
-    image: {
-      type: DataTypes.BLOB,
+    imagetext: {
+      type: DataTypes.TEXT,
       allowNull: false
     }
   });
+  hiker.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    hiker.hasMany(models.hikes, {
+      onDelete: "cascade"
+    });
+  };
+
   return hiker;
 };

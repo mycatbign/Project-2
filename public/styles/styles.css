@@ -1,7 +1,9 @@
 /* ============================================================ */
 /* css for modal */
 /* ============================================================ */
-
+.profile-pic-options{
+  width: 20px;
+}
 .list-group-item {
   line-height: 2.5;
 }
@@ -14,10 +16,30 @@
   width: 250px;
   margin: 10px;  
 }
+/* .profile-pic-options {
+  width: 30px
+} */
 
 /* ============================================================ */
 /* css for second-screen-design */
 /* ============================================================ */
+body{
+  background-color: whitesmoke
+}
+#profile-section {
+  /* background-color:rgb(228, 126, 31) */
+  height: 15%;
+  background-image: url("../images/background2.jpg");
+  /* background-size: cover; */
+  background-repeat: no-repeat
+}
+#username-input{
+    color:rgb(34, 54, 48)
+}
+.profile-button{
+    background-color:rgb(34, 54, 48);
+    color: rgba(245, 245, 245, 0.685)
+}
 
 html {
   height: 100%;
@@ -25,6 +47,9 @@ html {
 
 body {
   height: 100%;
+}
+#hikerPic {
+  width:30px
 }
 
 .container {
@@ -34,9 +59,11 @@ body {
 }
 
 #hikerHeader {
-  height: 15%;
+  height: 25%;
   width: 100%;
-  background-color: rgb(3, 133, 89);
+  background-image: url("../images/background2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-style: solid;
   border-width: 2px;
   border-color: white;
@@ -44,25 +71,25 @@ body {
 }
 
 #hikerScreen {
-  height: 80%;
+  height: 70%;
   width: 100%;
+  margin-left: 2px
 }
 
 #hikerProfile {
   height: 100%;
-  width: 25%;
-  background-color: rgb(3, 133, 89);
+  width: 20%;
+  background-color: #3b945e;
   border-style: solid;
   border-width: 2px;
   border-color: white;
   border-radius: 5px;
-
 }
 
 #hikerDisplay {
   height: 100%;
-  width: 75%;
-  background-color: rgb(3, 133, 89);
+  width: 80%;
+  background-color: #3b945e;
   border-style: solid;
   border-width: 2px;
   border-color: white;
@@ -72,7 +99,7 @@ body {
 #hikerFooter {
   height: 5%;
   width: 100%;
-  background-color: rgb(3, 133, 89);
+  background-color: #3b945e;
   color: white;
   border-style: solid;
   border-width: 2px;
@@ -80,6 +107,7 @@ body {
   border-radius: 5px;
   display: block;
   text-align: center;
+  margin-left: 2px
 }
 
 #hikerLogo {
@@ -101,7 +129,7 @@ body {
 }
 
 .btn-group button {
-  background-color: #4CAF50; /* Green background */
+  background-color: #57ba98; /* Green background */
   border: 1px solid green; /* Green border */
   color: white; /* White text */
   padding: 10px 24px; /* Some padding */
@@ -117,12 +145,51 @@ body {
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: #3e8e41;
-}
+  }
 
 /* ============================================================ */
 /* css for main screen */
 /* ============================================================ */
 
+/* =============== css mountains ============================== */
+.manage-hikes-display {
+  background-color: #704b35
+}
+.mountains-hiked-title{
+  background-color:gray;
+  color:rgb(44, 44, 85);
+  font-size: 30px;
+  font-family: cursive;
+  text-align: center
+}
+.hikes{
+  background-color: rgb(44, 44, 85);
+  color: lightgrey;
+  border-color: #7c8e00;
+  border: 1px;
+  border-style: groove;
+  margin-bottom : 1px
+}
+.add-hike-header{
+  color:rgb(44, 44, 85);
+}
+.add-hike-section{
+  color:#57ba98;
+}
+.add-hike-footer{
+  color:rgb(44, 44, 85);
+}
+ .mountains-hiked-list{
+  background-color:(44, 44, 85);
+}
+.mountain-list-items{
+  background-color: gray;
+  border-color:#57ba98;
+  border:2px;
+  border-style: solid;
+  margin-bottom: 2px
+} 
+/* ============================================================ */
 .bgImgCenter{
   background-image: url('../Project-2/images/10677.jpg');
   background-repeat: no-repeat;
@@ -133,6 +200,7 @@ body {
 .jumbotron{
   /* background-color: #2C561B!important; */
   height: 50!important;
+
 }
 
 .jumbotron-fluid{
@@ -159,7 +227,6 @@ body {
 
 .lgtgrn {
   color: #7c8e00;
-  
 }
 
 .brn {
