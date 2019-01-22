@@ -3,22 +3,23 @@ $("document").ready(function () {
   var uniquehikes = [];
   var mountainsHikedUnique = function (){
     $.each(trackhikes, function (i, el) {
-      if ($.inArray(el, uniquehikes) === -1) uniquehikes.push(el);
-    })
+      if ($.inArray(el, uniquehikes) === -1) {uniquehikes.push(el);
+      }
+    });
     // console.log(uniquehikes)
     var hikedTotal = uniquehikes.length;
     $(".mountains-hiked-list").text("Mountains Hiked: " + hikedTotal);
     // for (j=0; j<uniquehike.length; j++) {
-    console.log(uniquehikes)
+    console.log(uniquehikes);
     for (i=0; i<uniquehikes.length; i++) {
-      var newmountains = $("<div> </div").text(uniquehikes[i]).addClass("mountain-list-items")
-      $(".mountains-hiked-list").append(newmountains)
+      var newmountains = $("<div> </div").text(uniquehikes[i]).addClass("mountain-list-items");
+      $(".mountains-hiked-list").append(newmountains);
     }
-  }
+  };
   //only display google maps
   $(".manage-hikes-display").hide();
-  $(".display-google-maps").show()
-  console.log("loaded")
+  $(".display-google-maps").show();
+  console.log("loaded");
   var hikerName = $("#username-input");
   var hikerBio = $(".bio");
   var hikerImage = $("#hikerPic");
@@ -30,8 +31,8 @@ $("document").ready(function () {
     if (userinput.profileImage === animal) {
       hikerImage.attr("src", pic)
         .width("100")
-        .height("100")
-    };
+        .height("100");
+    }
   };
   //calling picture function for all pictures
   showPic("Bear", "./images/profile-images/Bear.jpg");
@@ -69,20 +70,20 @@ $("document").ready(function () {
   var retrieveHikes = function(){
     $(".mountains-hiked").empty();
     gethikes(hikerSearch).then(function (data) {
-      console.log(data)
+      console.log(data);
       for (i = 0; i < data.length; i++) {
         var date = data[i].datehiked.split("T")[0];
         var time = data[i].hourstaken * 60 + data[i].minutestaken;
-        console.log(time)
+        console.log(time);
         var mountainTable = $("<tr> </tr>").addClass("hikes");
         var mountainName = $("<th> </th>").text(data[i].mountain);
         var mountainDate = $("<th> </th>").text(date);
         var mountainTime = $("<th> </th>").text(time + " minutes");
-        var mountainDifficulty = $("<th> </th>").text(data[i].difficulty)
-        mountainTable.append(mountainName)
-        mountainTable.append(mountainDate)
-        mountainTable.append(mountainTime)
-        mountainTable.append(mountainDifficulty)
+        var mountainDifficulty = $("<th> </th>").text(data[i].difficulty);
+        mountainTable.append(mountainName);
+        mountainTable.append(mountainDate);
+        mountainTable.append(mountainTime);
+        mountainTable.append(mountainDifficulty);
         $(".mountains-hiked").append(mountainTable);
         trackhikes.push(data[i].mountain);
       }
@@ -105,7 +106,7 @@ $("document").ready(function () {
     deleteProfile(idToDelete).then(function () {
       console.log("Profile " + idToDelete + " deleted");
       deleteProfile();
-      signedOut()
+      signedOut();
       $("#delete-modal").modal("toggle");
     });
   });
@@ -113,7 +114,7 @@ $("document").ready(function () {
   $(document).on("click", ".find-hiker", function () {
     console.log("searching");
     var friend = $(".display-name-search").val();
-    console.log(friend)
+    console.log(friend);
     findHikers(friend).then(function (data) {
       if (data) {
         // retrieve friend info to display
@@ -124,11 +125,13 @@ $("document").ready(function () {
         $("#friend-modal").modal("toggle");
         $(".friend-name").text(friendDisplayName);
         $(".friend-info").text(friendBio);
-        console.log(friendImage)
+        console.log(friendImage);
         // function to show friend picture
         var showFriendPic = function (animal, pic) {
           if (friendImage === animal) {
-            $(".friend-pic").attr("src", pic).width("100").height("100")
+            $(".friend-pic").attr("src", pic)
+              .width("100")
+              .height("100");
           }
         };
         //calling function on all pics to display
@@ -140,7 +143,7 @@ $("document").ready(function () {
         showFriendPic("Panda", "./images/profile-images/Panda.jpg");
         showFriendPic("Pig", "./images/profile-images/Pig.jpg");
         showFriendPic("Squirrel", "./images/profile-images/Squirrel.jpg");
-        console.log(data)
+        console.log(data);
       } else {
         alert("I'm sorry that username does not exist.");
       }
@@ -149,12 +152,12 @@ $("document").ready(function () {
   // if user clicks Map it displays map
   $(document).on("click", ".MapBtn", function () {
     $(".manage-hikes-display").hide();
-    $(".display-google-maps").show()
+    $(".display-google-maps").show();
   });
   // if user clicks my hikes it displays hikes and option to add more hikes
   $(document).on("click", ".myHikesBtn", function () {
     $(".manage-hikes-display").show();
-    $(".display-google-maps").hide()
+    $(".display-google-maps").hide();
   });
   // if user clicks add a hike it is saved to database and displayed in mountains hiked section
   $(document).on("click", ".mountain-submit", function () {
@@ -197,13 +200,13 @@ $("document").ready(function () {
       url: "api/hiker/" + user,
       type: "DELETE"
     });
-  }
+  };
   var findHikers = function (user) {
     return $.ajax({
       url: "api/hiker/" + user,
       type: "GET"
     });
-  }
+  };
   // ************************************************
   var savehike = function (example) {
     return $.ajax({
