@@ -16,7 +16,7 @@ module.exports = function (app) {
       msg: "Welcome!"
     });
   });
- 
+
 
   // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
@@ -36,23 +36,25 @@ module.exports = function (app) {
     }).catch(function (err) {
       console.log(err);
 
-  
-  app.get("/profile", function(req, res){
-    // db.mountains.findAll({}).then(function(data) {
-    res.render("second-screen-design", {
-    //     mtns: data
-    //   });
-    // }).catch(function(err) {
-    //   console.log(err);
+
+      app.get("/profile", function (req, res) {
+        // db.mountains.findAll({}).then(function(data) {
+        res.render("second-screen-design", {
+          //     mtns: data
+          //   });
+          // }).catch(function(err) {
+          //   console.log(err);
+
+        });
+      });
+
+
+
+      // Render 404 page for any unmatched routes
+      app.get("*", function (req, res) {
+        res.render("404");
+      });
 
     });
   });
-
-
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
-    res.render("404");
-  });
-
-}
+};
