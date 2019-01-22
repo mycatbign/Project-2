@@ -125,13 +125,23 @@
         </div> <!-- end main display area column -->
 
     </div> <!-- end second screen row -->
-    <div>
+
+    {{!-- Select for the mountain you have hiked, hit submit, and it posts --}}
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Select your mountains</h1>
+    <p class="lead">Select the Mountain you have hiked and hit submit to record it</p>
+          <div>
       <select>
        {{#each mtns}}
-         <option>{{this.Name}}</option>
+         <option id="mountain-hiked">{{this.Name}}</option>
        {{/each}}
       </select>
     </div>
+    <button type="button" id="submit-hike" class="btn btn-lg btn-success" >Submit Hike!</button>
+  </div>
+</div>
+   
     <!-- footer -->
     <div id="hikerFooter" class="row">
         A TRBL Coders Design 2019
