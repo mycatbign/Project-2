@@ -16,6 +16,7 @@ module.exports = function(app) {
       msg: "Welcome!"
     });
   });
+ 
 
   // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
@@ -26,8 +27,8 @@ module.exports = function(app) {
   //   });
   // });
   
-  app.get("/mountains", function(req, res){
-    db.example.findAll({}).then(function(data) {
+  app.get("/profile", function(req, res){
+    db.mountains.findAll({}).then(function(data) {
       res.render("second-screen-design", {
         mtns: data
       });

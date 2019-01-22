@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var example = sequelize.define("example", {
+  var mountains = sequelize.define("mountains", {
     Name: DataTypes.STRING,
     Elevation: DataTypes.TEXT,
     Prominence: DataTypes.TEXT,
@@ -7,5 +7,5 @@ module.exports = function(sequelize, DataTypes) {
     LatLong: DataTypes.TEXT,
     Longitude: DataTypes.TEXT
   });
-  return example;
+  return mountains;
 };

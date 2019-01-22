@@ -7,7 +7,7 @@ firstName varchar(16),
 lastName varchar(16),
 displayName varchar(16),
 information varchar(200),
-image blob
+imagetext varchar(30)
 );
 
 insert into hiker(user, password)

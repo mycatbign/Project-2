@@ -2,17 +2,24 @@
 <div class="container">
 
   <!-- header row -->
-  <div id="hikerHeader" class="row">
-    <div class="col-8">
-      <br>
-      <h1 id="username-input"></h1>
+  <div id="hikerHeader">
+    <div class="row">
+      <div class="col-8">
+        <br>
+        <h1 id="username-input"></h1>
+      </div>
+      <div class="col-4">
+        <br>
+        <button class="btn-success sign-out">Sign Out</button>
+        <button id="element" href="#" class="btn-success delete-profile" style="display:inline;">Delete Profile</button>
+      </div>
     </div>
-    <div class="col-4">
-      <br>
-      <button class="btn-success sign-out">Sign Out</button>
-      <button id="element" href="#" class="btn-success delete-profile" style="display:inline;">Delete Profile</button>
+    <div class="row">
+      <div class="col-md-12 bio"></div>
     </div>
-  </div> <!-- end header row -->
+
+  </div>
+  <!-- end header row -->
 
   <!-- second screen row - content area is broken in to single row with 2 columns-->
   <div id="hikerScreen" class="row">
@@ -26,49 +33,87 @@
       <br>
 
       <!-- if the hiker is signed in we can display the My Hikes feature-->
-      <button id="myHikesBtn" class="btn-success btn-block hide">My Hikes</button>
+      <button id="myHikesBtn" class="btn-success btn-block hide myHikesBtn">My Hikes</button>
 
       <!-- the following functions are available all the time-->
+      <button id="MapBtn" class="btn-success btn-block MapBtn">Map</button>
       <button id="researchMapBtn" class="btn-success btn-block">Research My Next Hike</button>
       <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button>
       <button id="nhWeatherBtn" class="btn-success btn-block">NH Weather Forecast</button>
-      <button id="findHikerBtn" class="btn-success btn-block">Find a Hiker</button>
+      <button id="findHikerBtn" class="btn-success btn-block find-hiker">Find a Hiker</button>
+      <br>
+      <input type="username" class="display-name-search" id="defaultForm-friend-input" class="form-control validate">
+      <br>
 
-      <!-- Find a hiker -->
-      {{!-- <div class="col-md-4">
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <label data-error="wrong" data-success="right" for="defaultForm">Enter a hikers name</label>
-          <input type="username" class="display-name-search" id="defaultForm-friend-input" class="form-control validate">
-        </div>
-      </div>
-      <div class="col-md-2 ">
-        <div id="element" class="btn profile-button  find-hikers">Find Hiker</div> --}}
-        {{!--
-      </div> <!-- end find hikers --> --}}
-
-    </div> <!-- end profile column -->
+    </div>
+    <!-- end profile column -->
 
     <!-- main display area -->
-    <div id="hikerDisplay" class="col-9">
+    <div id="hikerDisplay" class="col-9 ">
       <!-- display mountains already hiked -->
-      <div class="row">
+      <div class="row display-google-maps">
         <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1uOqwaKQq791rvS58dFlk9QRL63x4yFUm" width="840" height="440"></iframe>
         <!-- <img src="../public/images/TAH.JPG" alt="Mountain View"> -->
-      </div> <!-- end display mountains already hiked -->
+      </div>
+      <!-- end display mountains already hiked -->
       <!-- display google map so hiker can research mountains and hikes -->
       <div class="row">
-      </div> <!-- end display googke maps -->
-    </div> <!-- end main display area column -->
+      </div>
+      <!-- end display google maps -->
+      {{!-- display mountains hiked --}}
 
-  </div> <!-- end second screen row -->
+
+
+      <div class="manage-hikes-display">
+        <div class="mountains-hiked-title">Hikes</div>
+      
+          
+          
+        
+        <div class="row ">
+<div class = "col-md-1"></div>
+          <table class="col-md-7 mountains-hiked">
+<tr>
+  <th class = "">Mountains</th>
+          <th class = "">Date</th>
+          <th class = "">Time taken</th>
+          <th class = "">Difficulty Level</th>
+</tr>
+
+          </table>
+          <div class="col-md-4 mountains-hiked-list"> </div>
+        </div>
+<br>
+         <br>
+        <div class="row">
+    
+         
+           <div class = "col-md-4">
+          <button id="mountain-submit" class="btn-success btn-block mountain-submit">Add a Hike</button>
+          </div>
+            <div class = "col-md-8"></div>
+          {{!--
+          <select>
+            {{#each mtns}}
+            <option>{{this.Name}}</option>
+            {{/each}}
+          </select> --}}
+        </div>
+      </div>
+    </div> {{!-- end display mountains hiked --}}
+
+    <!-- end main display area column -->
+
+  </div>
+  <!-- end second screen row -->
 
   <!-- footer -->
   <div id="hikerFooter" class="row">
     A TRBL Coders Design 2019
   </div>
 
-</div> <!-- end second screen container -->
+</div>
+<!-- end second screen container -->
 
 {{!-- delete profile modal --}}
 <div class="modal fade  " id="delete-modal" tabindex="-1" role="dialog">
@@ -92,8 +137,7 @@
 </div>
 </div>
 
-{{!-- ***************************************** --}}
-{{!-- add friend modal --}}
+{{!-- ***************************************** --}} {{!-- add friend modal --}}
 <div class="modal fade  " id="friend-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -105,14 +149,15 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-4 friend-pic"></div>
+          <img src="" class="col-md-4 friend-pic">
           <div class="col-md-4 friend-name"></div>
         </div>
         <div class="row">
           <div class="col-md-10 friend-info"></div>
         </div>
-        <p>Add a Hiker friend</p>
+
         <div class="modal-footer">
+          <p>Add a Hiker friend</p>
           <button type="button" id="add-friend" class="btn btn-primary">Yes</button>
           <button type="submit" id="decline" class="btn btn-primary" data-dismiss="modal">No</button>
         </div>
@@ -121,11 +166,88 @@
   </div>
 </div>
 </div>
+{{!-- *************************************************** --}} {{!-- ***************************************** --}} {{!--add
+a hike modal --}}
+<div class="modal fade  " id="manage-hike-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title add-hike-header">Add a Hike!</h5>
+        <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+          <span aria-hidden="true ">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+        <div class=" ">
+          {{!--
+          <div class="col-md-2 "> --}}
+            <div class="md-form mb-4 ">
+              <i class="fas fa-lock prefix grey-text "></i>
+              <label data-error="wrong " class="add-hike-section " data-success="right " for="defaultForm ">Mountain:</label>
+            </div>
+            <input type="mountain " class="display-name-search mountain " id="defaultForm-mountain " class="form-control
+          validate "> {{!-- </div> --}} {{!--
+          <div class="col-md-1 "> --}}
+            <br>
+            <br>
+            <p class="add-hike-section ">Date:</p>
+            <input type="date " class="time " id="start " name="trip-start " value="2019-01-22 " min="2017-01-01
+          " max="2019-01-22 ">
+            <br>
+            <br>
+            <p class="add-hike-section "> Time taken:</p>
+            <select class="hours ">
+              <option value="0 ">0 hours</option>
+              <option value="1 ">1 hour </option>
+              <option value="2 ">2 hours </option>
+            </select>
+            <select class="minutes ">
+              <option value="0 ">0 minutes</option>
+              <option value="1 ">1 minute</option>
+              <option value="2 ">2 minutes</option>
+            </select>
+
+
+            <br>
+            <br>
+            <p class="add-hike-section ">Difficulty Level: </p>
+            <select class="rank ">
+              <option value="1 ">1 (1 being easy and 5 being hard)</option>
+              <option value="2 ">2 (1 being easy and 5 being hard)</option>
+              <option value="3 ">3 (1 being easy and 5 being hard)</option>
+              <option value="4 ">4 (1 being easy and 5 being hard)</option>
+              <option value="5 ">5 (1 being easy and 5 being hard)</option>
+            </select>
+            {{!-- </div> --}}
+        </div>
+
+        <div class="modal-footer ">
+          <p class="add-hike-footer ">Click submit to add mountain</p>
+          <div> </div>
+
+
+          <button type="button " id= "add-hike" class="btn btn-primary add-hike">Submit</button>
+
+
+          <button type="submit " id="decline " class="btn btn-primary " data-dismiss="modal ">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 {{!-- *************************************************** --}}
 
+
+
+</div>
+<!-- end container -->
+
 <!-- comment why we load this when we do... -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
-<script src="/js/profile.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-  crossorigin="anonymous"></script>
+<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
+<script src="/js/index.js "></script>
+<script src="/js/profile.js "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy "
+  crossorigin="anonymous "></script>
