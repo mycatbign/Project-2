@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  //**** hiker table api calls */
   // Get logged in hiker
   app.get("/api/hiker/:user", function(req, res) {
     db.hiker
@@ -14,6 +15,8 @@ module.exports = function(app) {
         res.json(dbHiker);
       });
   });
+
+  // Get all hikers
   app.get("/api/hiker", function(req, res) {
     db.hiker.findAll({include: [db.hikes]}).then(function(dbHiker) {
       res.json(dbHiker);
@@ -40,7 +43,7 @@ module.exports = function(app) {
         res.json(dbHiker);
       });
   });
-
+  //**** mountain table api call to get mountain info */
   app.get("/api/mountains", function(req, res) {
     db.mountains.findAll({}).then(function(data) {
       console.log(data);
@@ -49,17 +52,14 @@ module.exports = function(app) {
       console.log(err);
     });
   });
-  // ***************************************************************
+  // *********** hikes table api calls****************************************************
 
-  // GET route for getting all of the posts
+  // GET route for getting all of the hikes
   app.get("/api/hikes", function(req, res) {
     var query = {};
     if (req.query.id) {
       query.id = req.query.id;
     }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
     db.hikes.findAll({
       where: query,
       include: [db.hiker]
@@ -68,11 +68,8 @@ module.exports = function(app) {
     });
   });
 
-  // Get route for retrieving a single post
+  // Get route for retrieving a single hike for a single user
   app.get("/api/hikes/:user", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
     db.hikes.findAll({
       where: {
         user: req.params.user
@@ -82,10 +79,9 @@ module.exports = function(app) {
       res.json(dbhikes);
     });
   });
+
+  // Get route for retrieving all hikes for a single user
   app.get("/api/hikes/:user", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
     db.hikes.findOne({
       where: {
         user: req.params.user
@@ -96,14 +92,14 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new post
+  // POST route for saving a new hike
   app.post("/api/hikes", function(req, res) {
     db.hikes.create(req.body).then(function(dbhikes) {
       res.json(dbhikes);
     });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for deleting hike
   app.delete("/api/hikes/:user", function(req, res) {
     db.hikes.destroy({
       where: {
@@ -114,7 +110,7 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating posts
+  // PUT route for updating hikes
   app.put("/api/hikes", function(req, res) {
     db.hikes.update(
       req.body,
@@ -126,8 +122,6 @@ module.exports = function(app) {
       res.json(dbhikes);
     });
   });
-
-
 };
 
 
