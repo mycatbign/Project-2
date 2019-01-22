@@ -1,20 +1,18 @@
 $("document").ready(function () {
   var trackhikes = [];
   var uniquehikes = [];
-  
   var mountainsHikedUnique = function (){
     $.each(trackhikes, function (i, el) {
       if ($.inArray(el, uniquehikes) === -1) uniquehikes.push(el);
-     })
-
+    })
     // console.log(uniquehikes)
     var hikedTotal = uniquehikes.length;
     $(".mountains-hiked-list").text("Mountains Hiked: " + hikedTotal);
     // for (j=0; j<uniquehike.length; j++) {
     console.log(uniquehikes)
     for (i=0; i<uniquehikes.length; i++) {
-    var newmountains = $("<div> </div").text(uniquehikes[i]).addClass("mountain-list-items")
-    $(".mountains-hiked-list").append(newmountains)
+      var newmountains = $("<div> </div").text(uniquehikes[i]).addClass("mountain-list-items")
+      $(".mountains-hiked-list").append(newmountains)
     }
   }
   //only display google maps
@@ -30,8 +28,10 @@ $("document").ready(function () {
   // function that displays user pictures
   var showPic = function (animal, pic) {
     if (userinput.profileImage === animal) {
-      hikerImage.attr("src", pic).width("100").height("100")
-         };
+      hikerImage.attr("src", pic)
+        .width("100")
+        .height("100")
+    };
   };
   //calling picture function for all pictures
   showPic("Bear", "./images/profile-images/Bear.jpg");
@@ -49,12 +49,12 @@ $("document").ready(function () {
   for (i = 3; i < 25; i++) {
     var hour = $("<option></option>").text(i + " hours");
     $(".hours").append(hour);
-  };
+  }
   // populate minutes field
   for (i = 3; i < 61; i++) {
     var minute = $("<option></option>").text(i + " minutes");
     $(".minutes").append(minute);
-  };
+  }
   // function to display the hikes a user has done
   var hikerSearch = userinput.displayName;
   var gethikes = function (user) {
@@ -62,18 +62,15 @@ $("document").ready(function () {
       url: "api/hikes/" + user,
       type: "GET"
     });
-  }
+  };
   // setting get hikes search parameter
   var hikerSearch = userinput.displayName;
-    // estabnlishing and calling function to display user hikes 
+  // estabnlishing and calling function to display user hikes 
   var retrieveHikes = function(){
     $(".mountains-hiked").empty();
-  gethikes(hikerSearch).then(function (data) {
-   
-    console.log(data)
-  
+    gethikes(hikerSearch).then(function (data) {
+      console.log(data)
       for (i = 0; i < data.length; i++) {
-  
         var date = data[i].datehiked.split("T")[0];
         var time = data[i].hourstaken * 60 + data[i].minutestaken;
         console.log(time)
@@ -90,11 +87,9 @@ $("document").ready(function () {
         trackhikes.push(data[i].mountain);
       }
       mountainsHikedUnique();
-    })
-  }
+    });
+  };
   retrieveHikes();
-
-
   // ***************************On clicks*****************************************
   // if user clicks sign out it signs out user
   $(document).on("click", ".sign-out", function () {
@@ -134,7 +129,7 @@ $("document").ready(function () {
         var showFriendPic = function (animal, pic) {
           if (friendImage === animal) {
             $(".friend-pic").attr("src", pic).width("100").height("100")
-          };
+          }
         };
         //calling function on all pics to display
         showFriendPic("Bear", "./images/profile-images/Bear.jpg");
@@ -155,27 +150,25 @@ $("document").ready(function () {
   $(document).on("click", ".MapBtn", function () {
     $(".manage-hikes-display").hide();
     $(".display-google-maps").show()
-  })
+  });
   // if user clicks my hikes it displays hikes and option to add more hikes
   $(document).on("click", ".myHikesBtn", function () {
     $(".manage-hikes-display").show();
     $(".display-google-maps").hide()
   });
-
   // if user clicks add a hike it is saved to database and displayed in mountains hiked section
   $(document).on("click", ".mountain-submit", function () {
     $("#manage-hike-modal").modal("toggle");
   });
- 
   $(document).on("click", ".add-hike", function () {
-    console.log("click")
+    console.log("click");
     var mount = $(".mountain").val().trim();
     var hikername = userinput.displayName;
     var hikerhours = $(".hours").val();
     var hikerminutes = $(".minutes").val();
     var hikerdate = $(".time").val();
     var difficulty = $(".rank").val();
-    console.log(hikername)
+    console.log(hikername);
     var hike = {
       user: hikername,
       mountain: mount,
@@ -184,29 +177,20 @@ $("document").ready(function () {
       datehiked: hikerdate,
       difficulty: difficulty
     };
-  
-    // $(".mountains-hiked").empty()
+      // $(".mountains-hiked").empty()
     // $(".mountains-hiked-list").empty()
     savehike(hike).then(function () {
       retrieveHikes();
       $("#manage-hike-modal").modal("toggle");
-    })
-  })
-
-
+    });
+  });
   // ***********************End on clicks*****************************************
-
   //
   var signedOut = function () {
     console.log("You are successfully signed out");
     $("#username-input").empty();
-    // firebase.auth().signOut().then(function () {
-      // Sign-out successful.
-      window.open("/", "_self");
-    // }).catch(function (error) {
-      // An error happened.
-    // });
-
+    // Sign-out successful.
+    window.open("/", "_self");
   };
   var deleteProfile = function (user) {
     return $.ajax({
@@ -230,5 +214,5 @@ $("document").ready(function () {
       url: "api/hikes",
       data: JSON.stringify(example)
     });
-  }
+  };
 });
