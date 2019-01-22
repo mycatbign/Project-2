@@ -48,12 +48,14 @@ $("document").ready(function () {
   hikerBio.text(userinput.userBio);
   // populate hours field
   for (i = 3; i < 25; i++) {
-    var hour = $("<option></option>").text(i + " hours");
+    var hour = $("<option ></option>").text(i + " hours");
+    hour.val(i);
     $(".hours").append(hour);
   }
   // populate minutes field
   for (i = 3; i < 61; i++) {
     var minute = $("<option></option>").text(i + " minutes");
+    minute.val(i);
     $(".minutes").append(minute);
   }
   // function to display the hikes a user has done
@@ -91,6 +93,20 @@ $("document").ready(function () {
     });
   };
   retrieveHikes();
+  var mountainOptions = function () {
+    return $.ajax({
+      url: "api/mountains",
+      type: "GET"
+    });
+  };
+  mountainOptions().then(function (data) {
+    console.log(data[1]);
+    for (i=0;i<data.length; i++){
+      var mountainNames = $("<option> </option").text(data[i].Name);
+      $(".mountain").append(mountainNames);
+    }
+  
+  });
   // ***************************On clicks*****************************************
   // if user clicks sign out it signs out user
   $(document).on("click", ".sign-out", function () {
@@ -163,9 +179,13 @@ $("document").ready(function () {
   $(document).on("click", ".mountain-submit", function () {
     $("#manage-hike-modal").modal("toggle");
   });
+  $(document).on("click", ".close-hikes", function () {
+    $("#manage-hike-modal").modal("toggle");
+  });
+  
   $(document).on("click", ".add-hike", function () {
     console.log("click");
-    var mount = $(".mountain").val().trim();
+    var mount = $(".mountain option:selected").val().trim();
     var hikername = userinput.displayName;
     var hikerhours = $(".hours").val();
     var hikerminutes = $(".minutes").val();
@@ -218,4 +238,5 @@ $("document").ready(function () {
       data: JSON.stringify(example)
     });
   };
+ 
 });

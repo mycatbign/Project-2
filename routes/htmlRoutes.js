@@ -1,5 +1,5 @@
 require("../models");
-var db = require("../models");
+
 
 module.exports = function(app) {
   // Load index page
@@ -28,12 +28,12 @@ module.exports = function(app) {
   // });
   
   app.get("/profile", function(req, res){
-    db.mountains.findAll({}).then(function(data) {
-      res.render("second-screen-design", {
-        mtns: data
-      });
-    }).catch(function(err) {
-      console.log(err);
+    // db.mountains.findAll({}).then(function(data) {
+    res.render("second-screen-design", {
+    //     mtns: data
+    //   });
+    // }).catch(function(err) {
+    //   console.log(err);
     });
   });
 
