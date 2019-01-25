@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
+  "engines": {
+    "node": "8.11.4"
+  },
   "scripts": {
     "start": "node server.js",
     "lint": "eslint **/*.js --quiet",
     "fix": "eslint --fix .",
-    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit",
-  },
-  "engines": {
-    "node": "8.11.4"
+    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
