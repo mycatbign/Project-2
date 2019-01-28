@@ -6,22 +6,23 @@ The state of New Hampshire has forty-eight magnificient 4,000 footer mountains (
 
 ### Team:
 TRBL Codes consists of five individuals who have recently completed 16 weeks of a 24 week full stack development bootcamp. The team was brough together much like Frodo and The Fellowship of the Ring the whim of our class Instructor Blake and our TA Mason. Our Fellowship includes:
-Cheyra Dickinson
-Diane Schiavo
-Mark Loughran
-Stan Mozolevskiy
-Jeff Bond
+*Cheyra Dickinson
+*Diane Schiavo
+*Mark Loughran
+*Stan Mozolevskiy
+*Jeff Bond
 
 ### Rough Breakdown of Tasks:
-Simple flexible front end and main menu that will allow rapid MVP and ease of introducing new features.
-Hiker Management including Sign Up with a profile, Sign In, Delete Profile. 
-A list of the NH48 mountains used to track HIkes.
-Functions such as 
-My Hikes - Used to track a Hiker progress towards completing the NH$8.
-Map -Allows the Hiker to view all NH48 mountains on a googlemaps for planning purposes.
-Research My Next Hike - Allows the Hiker to view information about a specific mountain for planning their next hike.  
-NH Weather Forecast - Allows Hikers to view pending weather forecast to help with planning their hikes.
-Find a Hiker -  Allows a HIker to locate another HIker and view their hike information. 
+-Simple flexible front end and main menu that will allow rapid MVP and ease of introducing new features.
+-Hiker Management including Sign Up with a profile, Sign In, Delete Profile. 
+-A list of the NH48 mountains used to track Hikes.
+
+Functions such as: 
+-My Hikes - Used to track a Hiker progress towards completing the NH$8.
+-Map -Allows the Hiker to view all NH48 mountains on a googlemaps for planning purposes.
+-Research My Next Hike - Allows the Hiker to view information about a specific mountain for planning their next hike.  
+-NH Weather Forecast - Allows Hikers to view pending weather forecast to help with planning their hikes.
+-Find a Hiker -  Allows a HIker to locate another HIker and view their hike information. 
 
 ### Demo the Site:
 The site can be viewed on Heroku [here]https://boiling-savannah-54771.herokuapp.com/
@@ -29,10 +30,10 @@ The site can be viewed on Heroku [here]https://boiling-savannah-54771.herokuapp.
 ![](./images/Take_a_Hike.PNG "Take-A-Hike Home Page")
 
 ### Prerequisites:
-A modern browser and an internet connection. Chrome works best, but others should be fine too.
-A modern IDE - it was developed using Visual Studio Code, but any text editor would work, including notepad.
-GitHub
-GitBash installed locally
+-A modern browser and an internet connection. Chrome works best, but others should be fine too.
+-A modern IDE - it was developed using Visual Studio Code, but any text editor would work, including notepad.
+-GitHub
+-GitBash installed locally
 
 ### Getting Started Locally:
 To get started
