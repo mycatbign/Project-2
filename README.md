@@ -18,7 +18,7 @@ TRBL Codes consists of five individuals who have recently completed 16 weeks of 
 -A list of the NH48 mountains used to track Hikes.\
 -My Hikes - Used to track a Hiker progress towards completing the NH48.\
 -Map -Allows the Hiker to view all NH48 mountains on a googlemaps for planning purposes.\
--Research My Next Hike - Allows the Hiker to view information about a specific mountain for planning their next hike.\  
+-Research My Next Hike - Allows the Hiker to view information about a specific mountain for planning their next hike.\
 -NH Weather Forecast - Allows Hikers to view pending weather forecast to help with planning their hikes.\
 -Find a Hiker -  Allows a HIker to locate another HIker and view their hike information.
 
