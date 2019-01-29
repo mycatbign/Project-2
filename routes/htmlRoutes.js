@@ -8,7 +8,7 @@ module.exports = function (app) {
     res.render("index", {
       msg: "Welcome!"
       // examples: dbExamples
-      // });
+       });
     });
   });
   app.get("/profile", function (req, res) {
@@ -22,7 +22,7 @@ module.exports = function (app) {
     // db.mountains.findAll({}).then(function(data) {
     res.render("second-screen-design", {
     //     mtns: data
-    //   });
+      });
     // }).catch(function(err) {
     //   console.log(err);
     });
@@ -61,11 +61,5 @@ module.exports = function (app) {
 
 
 
-      // Render 404 page for any unmatched routes
-      app.get("*", function (req, res) {
-        res.render("404");
-      });
-
-    });
-  });
+  
 };
