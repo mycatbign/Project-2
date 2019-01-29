@@ -225,8 +225,63 @@
 
           <button type="submit " id="decline " class="btn btn-primary close-hikes " data-dismiss="modal ">Close</button>
 
-        </div>
-      </div>
+
+            <!-- display sign in or sign out button -->
+            <!-- we will unhide whichever button is relevent to the hiker -->
+            <br>
+            <!-- if the hiker is signed in we display hiker info -->
+            <p id="username-input"></p>
+            <img id="hikerPic" src="/images/jack.jpg" alt="Hiker Pic">
+            <br>
+            <!-- if the hiker is signed in we unhide the sign out button and display hiker info -->
+            <button id="signOutBtn" class="btn-success btn-block hide">Sign Out</button>
+
+            <!-- if the hiker is signed in we can display the My Hikes feature-->
+            <button id="myHikesBtn" class="btn-success btn-block hide">My Hikes</button>
+
+            <!-- the following functions are available all the time-->
+            <button id="researchMapBtn" class="btn-success btn-block">Research My Next Hike</button>
+            <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button>
+            <button id="reviewBlogsBtn" class="btn-success btn-block">Review Blog</button>
+            <button id="nhWeatherBtn" class="btn-success btn-block">NH Weather Forecast</button>
+
+        </div> <!-- end profile column -->
+
+        <!-- main display area -->
+        <div id="hikerDisplay" class="col-9">
+            <!-- display mountains already hiked -->
+            <div class="row">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1uOqwaKQq791rvS58dFlk9QRL63x4yFUm" width="840"
+                    height="440"></iframe>
+                <!-- <img src="../public/images/TAH.JPG" alt="Mountain View"> -->
+            </div> <!-- end display mountains already hiked -->
+            <!-- display google map so hiker can research mountains and hikes -->
+            <div class="row">
+            </div> <!-- end display googke maps -->
+        </div> <!-- end main display area column -->
+
+    </div> <!-- end second screen row -->
+
+    {{!-- Select for the mountain you have hiked, hit submit, and it posts --}}
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Select your mountains</h1>
+    <p class="lead">Select the Mountain you have hiked and hit submit to record it</p>
+          <div>
+      <select>
+       {{#each mtns}}
+         <option id="mountain-hiked">{{this.Name}}</option>
+       {{/each}}
+      </select>
+    </div>
+    <button type="button" id="submit-hike" class="btn btn-lg btn-success" >Submit Hike!</button>
+  </div>
+</div>
+   
+    <!-- footer -->
+    <div id="hikerFooter" class="row">
+        A TRBL Coders Design 2019
+
     </div>
   </div>
 </div>
