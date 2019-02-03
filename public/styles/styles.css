@@ -16,6 +16,9 @@
   width: 250px;
   margin: 10px;  
 }
+.weatherFrame{
+  height: 600px;
+}
 /* .profile-pic-options {
   width: 30px
 } */
@@ -71,7 +74,7 @@ body {
 }
 
 #hikerScreen {
-  height: 70%;
+  height: 87%;
   width: 100%;
   margin-left: 2px
 }
@@ -146,7 +149,19 @@ body {
 .btn-group button:hover {
   background-color: #3e8e41;
   }
-
+  .mountain-research{
+    text-decoration: none;
+    color: white
+  }
+  .mountain-research:hover{
+    text-decoration: none;
+    color: white
+  }
+.weather-info{
+  font-size: 50px;
+  color:#7c8e00;
+  background-color: #704b35
+}
 /* ============================================================ */
 /* css for main screen */
 /* ============================================================ */
