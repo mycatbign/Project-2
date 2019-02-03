@@ -37,9 +37,9 @@
 
       <!-- the following functions are available all the time-->
       <button id="MapBtn" class="btn-success btn-block MapBtn">Map</button>
-      <button id="researchMapBtn" class="btn-success btn-block">Research My Next Hike</button>
-      <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button>
-      <button id="nhWeatherBtn" class="btn-success btn-block">NH Weather Forecast</button>
+      <button id="researchMapBtn" class="btn-success btn-block researchMapBtn"><a href = "https://www.outdoors.org/trip-ideas-tips-resources/plan-your-trip/nh-4000-footers" target="blank" class="mountain-research btn-group">Research My Next Hike</a></button>
+      {{!-- <button id="exploreMountainsBtn" class="btn-success btn-block">Explore Mountains</button> --}}
+      <button id="nhWeatherBtn" class="btn-success btn-block nhWeatherBtn">NH Weather Forecast</button>
       <button id="findHikerBtn" class="btn-success btn-block find-hiker">Find a Hiker</button>
       <br>
       <input type="username" class="display-name-search" id="defaultForm-friend-input" class="form-control validate">
@@ -100,10 +100,25 @@
           </select> --}}
         </div>
       </div>
+      <div class ="weatherStuff">
+       <iframe src="https://www.powr.io/plugins/weather/view?unique_label=b852b529_1549155278&external_type=iframe" width="100%" height="700" frameborder="0"></iframe>
+    
+    {{!-- <select class="mountain-weather-options"></select> 
+    <button class="weatherBtn btn-group"> Weather </button>
+    <br>
+    <br>
+         <div class="temp-display weather-info"></div>
+         <br>
+    <div class="weather-display weather-info"></div>
+    <br>
+    <div class="wind-display weather-info"></div> --}}
+   
+    </div>
+
     </div> {{!-- end display mountains hiked --}}
 
     <!-- end main display area column -->
-
+    {{!-- start weather display area --}}
   </div>
   <!-- end second screen row -->
 
@@ -228,7 +243,7 @@
 
             <!-- display sign in or sign out button -->
             <!-- we will unhide whichever button is relevent to the hiker -->
-            <br>
+            {{!-- <br>
             <!-- if the hiker is signed in we display hiker info -->
             <p id="username-input"></p>
             <img id="hikerPic" src="/images/jack.jpg" alt="Hiker Pic">
@@ -258,12 +273,12 @@
             <!-- display google map so hiker can research mountains and hikes -->
             <div class="row">
             </div> <!-- end display googke maps -->
-        </div> <!-- end main display area column -->
+        </div> <!-- end main display area column --> --}}
 
     </div> <!-- end second screen row -->
 
     {{!-- Select for the mountain you have hiked, hit submit, and it posts --}}
-    <div class="jumbotron jumbotron-fluid">
+    {{!-- <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Select your mountains</h1>
     <p class="lead">Select the Mountain you have hiked and hit submit to record it</p>
@@ -276,20 +291,20 @@
     </div>
     <button type="button" id="submit-hike" class="btn btn-lg btn-success" >Submit Hike!</button>
   </div>
-</div>
+</div> --}}
    
-    <!-- footer -->
-    <div id="hikerFooter" class="row">
-        A TRBL Coders Design 2019
 
-    </div>
   </div>
 </div>
 </div>
 </div>
 {{!-- *************************************************** --}}
 
+    <!-- footer -->
+    {{!-- <div id="hikerFooter" class="row">
+        A TRBL Coders Design 2019
 
+    </div> --}}
 
 </div>
 <!-- end container -->
@@ -298,5 +313,6 @@
 <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
 <script src="/js/index.js "></script>
 <script src="/js/profile.js "></script>
+<script src="/js/weather.js "></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy "
   crossorigin="anonymous "></script>

@@ -25,6 +25,7 @@ $("document").ready(function () {
   //only display google maps on load
   $(".manage-hikes-display").hide();
   $(".display-google-maps").show();
+  $(".weatherStuff").hide();
   console.log("loaded");
 
   //establishing variables
@@ -124,6 +125,7 @@ $("document").ready(function () {
     for (i=0;i<data.length; i++){
       var mountainNames = $("<option> </option").text(data[i].Name);
       $(".mountain").append(mountainNames);
+      $(".mountain-weather-options").append(mountainNames);
     }
   
   });
@@ -194,6 +196,7 @@ $("document").ready(function () {
   // if user clicks Map it displays map
   $(document).on("click", ".MapBtn", function () {
     $(".manage-hikes-display").hide();
+    $(".weatherStuff").hide();
     $(".display-google-maps").show();
   });
 
@@ -201,6 +204,7 @@ $("document").ready(function () {
   $(document).on("click", ".myHikesBtn", function () {
     $(".manage-hikes-display").show();
     $(".display-google-maps").hide();
+    $(".weatherStuff").hide();
   });
 
   // if user clicks add a hike it is saved to database and displayed in mountains hiked section
@@ -231,7 +235,8 @@ $("document").ready(function () {
       datehiked: hikerdate,
       difficulty: difficulty
     };
-      // $(".mountains-hiked").empty()
+   
+    // $(".mountains-hiked").empty()
     // $(".mountains-hiked-list").empty()
 
     // saves hike information in hikes table and calls retrieves hikes to populate the hike display in html
@@ -239,6 +244,11 @@ $("document").ready(function () {
       retrieveHikes();
       $("#manage-hike-modal").modal("toggle");
     });
+  });
+  $(document).on("click", ".nhWeatherBtn", function (){
+    $(".manage-hikes-display").hide();
+    $(".display-google-maps").hide();
+    $(".weatherStuff").show();
   });
   // ***********************End on clicks*****************************************
   //
